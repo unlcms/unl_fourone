@@ -1,0 +1,43 @@
+name = UNLedu 4.1
+description = This theme tracks the 4.1.x version of the UNLedu Web Framework.
+screenshot = screenshot.png
+core = 7.x
+engine = phptemplate
+
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/book-overrides.css
+stylesheets[all][] = css/menu-block.css
+stylesheets[all][] = css/views.css
+
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+
+regions[navlinks] = Navigation links
+regions[content_top] = Content top
+regions[sidebar_first] = Sidebar first
+regions[content] = Content
+regions[sidebar_second] = Sidebar second
+regions[content_bottom] = Content bottom
+
+regions[optionalfooter] = Optional footer
+regions[leftcollinks] = Related links
+regions[contactinfo] = Contact us
+regions[footercontent] = Footer content
+
+plugins[panels][layouts] = layouts
+
+settings[toggle_logo] = 0
+settings[toggle_slogan] = 0
+settings[toggle_favicon] = 0
+
+settings[sidebar_first_width] = 3
+settings[sidebar_second_width] = 3
+settings[wdn_beta] = 0
+settings[unl_affiliate] = 0
+
+breakpoints[wdn-bp0] = (min-width: 0px)
+breakpoints[wdn-bp1] = (min-width: 480px)
+breakpoints[wdn-bp2] = (min-width: 768px)
+breakpoints[wdn-bp3] = (min-width: 980px)
+breakpoints[wdn-bp4] = (min-width: 1044px)
+breakpoints[wdn-bp5] = (min-width: 1600px)
