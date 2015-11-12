@@ -22,7 +22,6 @@ regions[content_bottom] = Content bottom
 regions[optionalfooter] = Optional footer
 regions[leftcollinks] = Related links
 regions[contactinfo] = Contact us
-regions[footercontent] = Footer content
 
 plugins[panels][layouts] = layouts
 
@@ -30,8 +29,10 @@ settings[toggle_logo] = 0
 settings[toggle_slogan] = 0
 settings[toggle_favicon] = 0
 
-settings[sidebar_first_width] = 3
-settings[sidebar_second_width] = 3
+settings[grid_class_sidebar_first] = bp768-wdn-col-one-fourth
+settings[grid_class_sidebar_second] = bp768-wdn-col-one-fourth
+settings[grid_class_content_one_sidebar] = bp768-wdn-col-three-fourths
+settings[grid_class_content_two_sidebars] = bp768-wdn-col-two-fourths
 settings[wdn_beta] = 0
 settings[unl_affiliate] = 0
 

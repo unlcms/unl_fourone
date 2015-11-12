@@ -235,42 +235,22 @@ function unl_fourone_process_html(&$vars) {
 
 /**
  * Implements template_preprocess_region().
- * Adds grid classes for sidebar_first, sidebar_second, and content regions.
  */
 function unl_fourone_preprocess_region(&$vars) {
-  static $grid;
-  if (!isset($grid)) {
-    $grid = _unl_fourone_grid_info();
-  }
-
   $vars['region_name'] = str_replace('_', '-', $vars['region']);
   $vars['classes_array'][] = $vars['region_name'];
 
-  // Add grid class.
-  if (in_array($vars['region'], array_keys($grid['regions']))) {
-    // Don't add if it would be a grid12.
-    if ($grid['regions'][$vars['region']]['width'] != 12) {
-      $vars['classes_array'][] = 'grid' . $grid['regions'][$vars['region']]['width'];
-    }
-    else {
-      $vars['classes_array'][] = 'wdn-band';
-    }
+  if ($vars['region'] == 'sidebar_first') {
+    $vars['classes_array'][] = theme_get_setting('grid_class_sidebar_first');
+  }
+  else if ($vars['region'] == 'sidebar_second') {
+    $vars['classes_array'][] = theme_get_setting('grid_class_sidebar_second');
   }
 
   // Sidebar regions receive common 'sidebar' class
   $sidebar_regions = array('sidebar_first', 'sidebar_second');
   if (in_array($vars['region'], $sidebar_regions)) {
     $vars['classes_array'][] = 'sidebar';
-  }
-
-  // Determine which region needs the 'first' class
-  if ($vars['region'] == 'content' &&
-      $grid['regions']['sidebar_first']['width'] == 0 &&
-      $grid['regions']['content']['width'] != 12) {
-    $vars['classes_array'][] = 'first';
-  }
-  else if ($vars['region'] == 'sidebar_first') {
-    $vars['classes_array'][] = 'first';
   }
 
   // Content top and bottom regions receive 'wdn-band' class
@@ -724,37 +704,4 @@ function unl_fourone_get_site_name_abbreviated() {
   else {
     return variable_get('site_name', 'Department');
   }
-}
-
-/**
- * Generate grid numbers for sidebar_first, sidebar_second, and content regions.
- * Based on work in the Fusion theme (fusion_core_grid_info()).
- */
-function _unl_fourone_grid_info() {
-  static $grid;
-  if (!isset($grid)) {
-    $grid = array();
-    $grid['width'] = 12;
-
-    if (module_exists('context') && $plugin = context_get_plugin('reaction', 'block')) {
-      $context['sidebar_first'] = $plugin->block_get_blocks_by_region('sidebar_first');
-      $context['sidebar_second'] = $plugin->block_get_blocks_by_region('sidebar_second');
-    }
-
-    $sidebar_first_width = (block_list('sidebar_first') || !empty($context['sidebar_first'])) ? theme_get_setting('sidebar_first_width') : 0;
-    $sidebar_second_width = (block_list('sidebar_second') || !empty($context['sidebar_second'])) ? theme_get_setting('sidebar_second_width') : 0;
-    $grid['regions'] = array();
-
-    $regions = array('sidebar_first', 'sidebar_second', 'content');
-    foreach ($regions as $region) {
-      if ($region == 'content') {
-        $region_width = $grid['width'] - $sidebar_first_width - $sidebar_second_width;
-      }
-      if ($region == 'sidebar_first' || $region == 'sidebar_second') {
-        $region_width = ($region == 'sidebar_first') ? $sidebar_first_width : $sidebar_second_width;
-      }
-      $grid['regions'][$region] = array('width' => $region_width);
-    }
-  }
-  return $grid;
 }
