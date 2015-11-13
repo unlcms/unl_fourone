@@ -291,19 +291,6 @@ function unl_fourone_preprocess_node(&$vars) {
   else {
     $vars['submitted'] =  t('!datetime ', array('!datetime' => $vars['date']));
   }
-
-  // Add the wdn-inner-wrapper class.
-  if (!$vars['unl_remove_inner_wrapper']) {
-    // Only add the class if a TIMS template that applies to this node doesn't exist. This
-    // is for backwards compatibility since .wdn-inner-wrapper used to be added in a unl_fourone
-    // node.tpl.php file that would be overridden by the presence of a TIMS template.
-    $possible_templates = array_merge($vars['theme_hook_suggestions'], array('node'));
-    $tims_templates = array_keys(variable_get('tims_templates', array()));
-    $common_templates = array_intersect($possible_templates, $tims_templates);
-    if (empty($common_templates)) {
-      $vars['classes_array'][] = 'wdn-inner-wrapper';
-    }
-  }
 }
 
 /**
@@ -333,7 +320,14 @@ function unl_fourone_username_alter(&$name, $account) {
  * Implements template_preprocess_page().
  */
 function unl_fourone_preprocess_page(&$vars, $hook) {
+  // Add the variable based on the Publishing Option flag set in the unl module.
+  $vars['unl_remove_inner_wrapper'] = FALSE;
+  $nid_exclude_list = variable_get('unl_remove_inner_wrapper', array());
+  if (in_array($vars['node']->nid, $nid_exclude_list)) {
+    $vars['unl_remove_inner_wrapper'] = TRUE;
+  }
 
+  // Add js to modify the My.UNL login links.
   $loginUrl = url('user', array('query' => drupal_get_destination()));
   $script = '  WDN.setPluginParam("idm", "login", "' . $loginUrl . '");' . PHP_EOL
           . '  WDN.setPluginParam("idm", "logout", "user/logout");' . PHP_EOL

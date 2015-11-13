@@ -55,28 +55,36 @@
             <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
             <?php print render($page['content_top']); ?>
 
-            <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
-            <section class="wdn-grid-set">
+            <?php if ($unl_remove_inner_wrapper): ?>
+            <div class="wdn-band">
             <?php endif; ?>
 
-                <?php print render($page['sidebar_first']); ?>
-
-                <?php if (isset($page['sidebar_first']['#region']) && isset($page['sidebar_second']['#region'])): ?>
-                    <div class="<?php print theme_get_setting('grid_class_content_two_sidebars'); ?>">
-                        <?php print render($page['content']); ?>
-                    </div>
-                <?php elseif (isset($page['sidebar_first']['#region']) || isset($page['sidebar_second']['#region'])): ?>
-                    <div class="<?php print theme_get_setting('grid_class_content_one_sidebar'); ?>">
-                        <?php print render($page['content']); ?>
-                    </div>
-                <?php else: ?>
-                    <?php print render($page['content']); ?>
+                <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
+                <section class="wdn-grid-set">
                 <?php endif; ?>
 
-                <?php print render($page['sidebar_second']); ?>
+                    <?php print render($page['sidebar_first']); ?>
 
-            <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
-            </section>
+                    <?php if (isset($page['sidebar_first']['#region']) && isset($page['sidebar_second']['#region'])): ?>
+                        <div class="<?php print theme_get_setting('grid_class_content_two_sidebars'); ?>">
+                            <?php print render($page['content']); ?>
+                        </div>
+                    <?php elseif (isset($page['sidebar_first']['#region']) || isset($page['sidebar_second']['#region'])): ?>
+                        <div class="<?php print theme_get_setting('grid_class_content_one_sidebar'); ?>">
+                            <?php print render($page['content']); ?>
+                        </div>
+                    <?php else: ?>
+                        <?php print render($page['content']); ?>
+                    <?php endif; ?>
+
+                    <?php print render($page['sidebar_second']); ?>
+
+                <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
+                </section>
+                <?php endif; ?>
+
+            <?php if ($unl_remove_inner_wrapper): ?>
+            </div>
             <?php endif; ?>
 
             <?php print render($page['content_bottom']); ?>
