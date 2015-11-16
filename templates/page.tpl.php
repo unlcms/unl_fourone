@@ -95,17 +95,37 @@
         <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
             <div class="wdn-inner-wrapper">
                 <!-- TemplateBeginEditable name="optionalfooter" -->
-                <?php render($page['optionalfooter']); ?>
+                <?php print render($page['optionalfooter']); ?>
                 <!-- TemplateEndEditable -->
             </div>
         </div>
         <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
             <div class="wdn-inner-wrapper">
                 <!-- TemplateBeginEditable name="contactinfo" -->
-                <?php render($page['contactinfo']); ?>
-                <!-- TemplateEndEditable -->
-                <!-- TemplateBeginEditable name="leftcollinks" -->
-                <?php render($page['leftcollinks']); ?>
+                <div class="wdn-grid-set wdn-footer-links-local">
+                    <div class="wdn-col-full bp640-wdn-col-two-thirds bp960-wdn-col-one-half">
+                        <div class="wdn-footer-module">
+                            <h3 class="wdn-footer-heading"><?php print $site_name; ?><span class="wdn-text-hidden"> Contact Information</span></h3>
+                            <div class="wdn-grid-set-halves bp960-wdn-grid-set-halves">
+                                <div class="wdn-col">
+                                <?php print render($page['contactinfo']); ?>
+                                </div>
+                                <div class="wdn-col">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TemplateEndEditable -->
+                    <!-- TemplateBeginEditable name="leftcollinks" -->
+                    <?php if ($page['leftcollinks']): ?>
+                    <div class="wdn-col-full bp640-wdn-col-one-third bp960-wdn-col-one-half">
+                        <div class="wdn-footer-module">
+                            <h3 class="wdn-footer-heading">Related Links</h3>
+                            <?php print render($page['leftcollinks']); ?>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
                 <!-- TemplateEndEditable -->
             </div>
         </div>
