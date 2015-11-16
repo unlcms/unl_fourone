@@ -15,7 +15,7 @@
                 <?php include(DRUPAL_ROOT . "/wdn/templates_4.1/includes/logo.html"); ?>
                 <!-- TemplateBeginEditable name="titlegraphic" -->
                 <span id="wdn_site_affiliation"><?php if ($site_slogan): ?><?php print $site_slogan; ?><?php endif; ?></span>
-                <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" --><?php if ($site_name): ?><?php print $site_name; ?><?php endif; ?><!-- TemplateEndEditable --></span>
+                <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" --><?php if ($site_name): ?><a href="<?php print $front_page; ?>"><?php print $site_name; ?></a><?php endif; ?><!-- TemplateEndEditable --></span>
                 <!-- TemplateEndEditable -->
             </div>
         </div>

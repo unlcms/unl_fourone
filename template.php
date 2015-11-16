@@ -258,12 +258,6 @@ function unl_fourone_preprocess_region(&$vars) {
   if (in_array($vars['region'], $content_regions)) {
     $vars['classes_array'][] = 'wdn-band';
   }
-
-  // Add .wdn-inner-wrapper to the content region of system pages such as the Access Denied page and
-  //   webform submission confirmation page. These are pages without nodes and without views.
-  if ($vars['region'] == 'content' && !array_key_exists('nodes', $vars['elements']['system_main']) && (!function_exists('views_get_page_view') || !views_get_page_view())) {
-    $vars['classes_array'][] = 'wdn-inner-wrapper';
-  }
 }
 
 /**
@@ -323,7 +317,7 @@ function unl_fourone_preprocess_page(&$vars, $hook) {
   // Add the variable based on the Publishing Option flag set in the unl module.
   $vars['unl_remove_inner_wrapper'] = FALSE;
   $nid_exclude_list = variable_get('unl_remove_inner_wrapper', array());
-  if (in_array($vars['node']->nid, $nid_exclude_list)) {
+  if (isset($vars['node']) && in_array($vars['node']->nid, $nid_exclude_list)) {
     $vars['unl_remove_inner_wrapper'] = TRUE;
   }
 
