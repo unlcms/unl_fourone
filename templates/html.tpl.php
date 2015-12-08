@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="<?php print $language->language; ?>"><!-- TemplateBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
+<html class="no-js" lang="<?php print $language->language; ?>"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <?php virtual("/wdn/templates_4.1/includes/metanfavico.html"); ?>
 <!--
