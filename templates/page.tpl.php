@@ -31,7 +31,7 @@
                 <!-- InstanceBeginEditable name="navlinks" -->
                 <?php print render($page['navlinks']); ?>
                 <!-- InstanceEndEditable -->
-                <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+                <?php include(DRUPAL_ROOT . "/wdn/templates_4.1/includes/navigation-addons.html"); ?>
             </nav>
         </div>
     </div>
