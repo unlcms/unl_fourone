@@ -13,24 +13,24 @@
         <div id="wdn_logo_lockup">
             <div class="wdn-inner-wrapper">
                 <?php include(DRUPAL_ROOT . "/wdn/templates_4.1/includes/logo.html"); ?>
-                <!-- TemplateBeginEditable name="titlegraphic" -->
+                <!-- InstanceBeginEditable name="titlegraphic" -->
                 <span id="wdn_site_affiliation"><?php if ($site_slogan): ?><?php print $site_slogan; ?><?php endif; ?></span>
-                <span id="wdn_site_title"><!-- TemplateBeginEditable name="titlegraphic" --><?php if ($site_name): ?><a href="<?php print $front_page; ?>"><?php print $site_name; ?></a><?php endif; ?><!-- TemplateEndEditable --></span>
-                <!-- TemplateEndEditable -->
+                <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><?php if ($site_name): ?><a href="<?php print $front_page; ?>"><?php print $site_name; ?></a><?php endif; ?><!-- InstanceEndEditable --></span>
+                <!-- InstanceEndEditable -->
             </div>
         </div>
     </header>
     <div id="wdn_navigation_bar" class="wdn-band">
         <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
-            <!-- TemplateBeginEditable name="breadcrumbs" -->
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
             <?php if ($breadcrumb): ?><?php print $breadcrumb; ?><?php endif; ?>
-            <!-- TemplateEndEditable -->
+            <!-- InstanceEndEditable -->
         </nav>
         <div id="wdn_navigation_wrapper">
             <nav id="navigation" role="navigation" aria-label="main navigation">
-                <!-- TemplateBeginEditable name="navlinks" -->
+                <!-- InstanceBeginEditable name="navlinks" -->
                 <?php print render($page['navlinks']); ?>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
                 <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
             </nav>
         </div>
@@ -42,13 +42,13 @@
     <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
         <div id="maincontent" class="wdn-main">
             <div id="pagetitle">
-                <!-- TemplateBeginEditable name="pagetitle" -->
+                <!-- InstanceBeginEditable name="pagetitle" -->
                 <?php print render($title_prefix); ?>
                 <?php if ($title): ?><h1><?php print $title; ?></h1><?php endif; ?>
                 <?php print render($title_suffix); ?>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </div>
-            <!-- TemplateBeginEditable name="maincontentarea" -->
+            <!-- InstanceBeginEditable name="maincontentarea" -->
             <?php print $messages; ?>
             <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
             <?php print render($page['help']); ?>
@@ -88,20 +88,20 @@
             <?php endif; ?>
 
             <?php print render($page['content_bottom']); ?>
-            <!-- TemplateEndEditable -->
+            <!-- InstanceEndEditable -->
         </div>
     </main>
     <footer id="footer" role="contentinfo" class="wdn-content-slide">
         <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
             <div class="wdn-inner-wrapper">
-                <!-- TemplateBeginEditable name="optionalfooter" -->
+                <!-- InstanceBeginEditable name="optionalfooter" -->
                 <?php print render($page['optionalfooter']); ?>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </div>
         </div>
         <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
             <div class="wdn-inner-wrapper">
-                <!-- TemplateBeginEditable name="contactinfo" -->
+                <!-- InstanceBeginEditable name="contactinfo" -->
                 <div class="wdn-grid-set wdn-footer-links-local">
                     <div class="wdn-col-full bp640-wdn-col-two-thirds bp960-wdn-col-one-half">
                         <div class="wdn-footer-module">
@@ -115,8 +115,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- TemplateEndEditable -->
-                    <!-- TemplateBeginEditable name="leftcollinks" -->
+                    <!-- InstanceEndEditable -->
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
                     <?php if ($page['leftcollinks']): ?>
                     <div class="wdn-col-full bp640-wdn-col-one-third bp960-wdn-col-one-half">
                         <div class="wdn-footer-module">
@@ -126,7 +126,7 @@
                     </div>
                     <?php endif; ?>
                 </div>
-                <!-- TemplateEndEditable -->
+                <!-- InstanceEndEditable -->
             </div>
         </div>
         <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
