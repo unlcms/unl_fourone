@@ -20,8 +20,10 @@ regions[sidebar_second] = Sidebar second
 regions[content_bottom] = Content bottom
 
 regions[optionalfooter] = Optional footer
+regions[contactinfo] = Contact info (Main)
+regions[contactinfo_additional] = Contact info (Additional)
+regions[socialmedia] = Social media
 regions[leftcollinks] = Related links
-regions[contactinfo] = Contact us
 
 plugins[panels][layouts] = layouts
 

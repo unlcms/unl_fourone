@@ -111,6 +111,7 @@
                                 <?php print render($page['contactinfo']); ?>
                                 </div>
                                 <div class="wdn-col">
+                                <?php print render($page['contactinfo_additional']); ?>
                                 </div>
                             </div>
                         </div>
