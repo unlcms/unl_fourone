@@ -103,15 +103,18 @@
             <div class="wdn-inner-wrapper">
                 <!-- InstanceBeginEditable name="contactinfo" -->
                 <div class="wdn-grid-set wdn-footer-links-local">
-                    <div class="wdn-col-full bp640-wdn-col-two-thirds bp960-wdn-col-one-half">
+                    <div class="wdn-col-full bp960-wdn-col-three-fourths">
                         <div class="wdn-footer-module">
                             <span class="wdn-footer-heading" role="heading"><?php print $site_name; ?><span class="wdn-text-hidden"> Contact Information</span></span>
-                            <div class="wdn-grid-set-halves bp960-wdn-grid-set-halves">
+                            <div class="wdn-grid-set-halves bp640-wdn-grid-set-thirds bp960-wdn-grid-set-thirds">
                                 <div class="wdn-col">
                                 <?php print render($page['contactinfo']); ?>
                                 </div>
                                 <div class="wdn-col">
                                 <?php print render($page['contactinfo_additional']); ?>
+                                </div>
+                                <div class="wdn-col">
+                                <?php print render($page['socialmedia']); ?>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +122,7 @@
                     <!-- InstanceEndEditable -->
                     <!-- InstanceBeginEditable name="leftcollinks" -->
                     <?php if ($page['leftcollinks']): ?>
-                    <div class="wdn-col-full bp640-wdn-col-one-third bp960-wdn-col-one-half">
+                    <div class="wdn-col-full bp960-wdn-col-one-fourth">
                         <div class="wdn-footer-module">
                             <span class="wdn-footer-heading" role="heading">Related Links</span>
                             <?php print render($page['leftcollinks']); ?>
