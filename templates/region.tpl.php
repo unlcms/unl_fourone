@@ -36,10 +36,10 @@ if ($format == 'partial') {
 }
 ?>
 
-<?php if ($region != 'navlinks'): ?>
+<?php if ($region != 'navlinks' && $region != 'content'): ?>
 <div <?php print $wrapper_id; ?> class="<?php print $classes; ?>">
 <?php endif;?>
   <?php print $content; ?>
-<?php if ($region != 'navlinks'): ?>
+<?php if ($region != 'navlinks' && $region != 'content'): ?>
 </div>
 <?php endif;?>

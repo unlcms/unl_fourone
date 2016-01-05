@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php $format = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
+if ($format !== 'partial') : ?><!DOCTYPE html>
 <html class="no-js" lang="<?php print $language->language; ?>"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <?php virtual("/wdn/templates_4.1/includes/metanfavico.html"); ?>
@@ -31,8 +32,11 @@
 <body class="<?php print $classes; ?>" data-version="4.1" <?php print $attributes;?>>
 <?php virtual("/wdn/templates_4.1/includes/skipnav.html"); ?>
 <?php print $page_top; ?>
+<?php endif; ?>
 <?php print $page; ?>
+<?php if ($format !== 'partial') : ?>
 <?php print $page_bottom; ?>
 <?php virtual("/wdn/templates_4.1/includes/body_scripts.html"); ?>
 </body>
 <!-- InstanceEnd --></html>
+<?php endif; ?>
