@@ -1,3 +1,5 @@
+<?php $format = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
+if ($format !== 'partial') : ?>
 <div id="wdn_wrapper">
     <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
     <?php include(DRUPAL_ROOT . "/wdn/templates_4.1/includes/noscript-padding.html"); ?>
@@ -53,6 +55,7 @@
             <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
             <?php print render($page['help']); ?>
             <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+<?php endif; ?>
             <?php print render($page['content_top']); ?>
 
             <?php if ($unl_remove_inner_wrapper): ?>
@@ -88,6 +91,7 @@
             <?php endif; ?>
 
             <?php print render($page['content_bottom']); ?>
+<?php if ($format !== 'partial') : ?>
             <!-- InstanceEndEditable -->
         </div>
     </main>
@@ -141,3 +145,4 @@
     </footer>
     <?php include(DRUPAL_ROOT . "/wdn/templates_4.1/includes/noscript.html"); ?>
 </div>
+<?php endif; ?>
