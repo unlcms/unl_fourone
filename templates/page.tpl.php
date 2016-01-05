@@ -66,7 +66,9 @@ if ($format !== 'partial') : ?>
                 <section class="wdn-grid-set">
                 <?php endif; ?>
 
-                    <?php print render($page['sidebar_first']); ?>
+                    <?php if($page['sidebar_first']): ?>
+                        <?php print render($page['sidebar_first']); ?>
+                    <?php endif; ?>
 
                     <?php if (isset($page['sidebar_first']['#region']) && isset($page['sidebar_second']['#region'])): ?>
                         <div class="<?php print theme_get_setting('grid_class_content_two_sidebars'); ?>">
@@ -80,7 +82,9 @@ if ($format !== 'partial') : ?>
                         <?php print render($page['content']); ?>
                     <?php endif; ?>
 
-                    <?php print render($page['sidebar_second']); ?>
+                    <?php if($page['sidebar_second']): ?>
+                        <?php print render($page['sidebar_second']); ?>
+                    <?php endif; ?>
 
                 <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
                 </section>
