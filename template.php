@@ -9,7 +9,7 @@ function unl_fourone_block_view_alter(&$data, $block) {
   }
 
   // Don't display "Block title"
-  if (in_array($block->region, array('leftcollinks', 'contactinfo'))) {
+  if (in_array($block->region, array('contactinfo'))) {
     $block->title = '';
   }
 }

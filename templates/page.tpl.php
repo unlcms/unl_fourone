@@ -131,7 +131,7 @@ if ($format !== 'partial') : ?>
             $rl_class = 'wdn-col-full bp960-wdn-col-one-half';
     }
 
-    ?>
+?>
 
     <footer id="footer" role="contentinfo" class="wdn-content-slide">
         <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
@@ -166,7 +166,6 @@ if ($format !== 'partial') : ?>
                     <?php if ($page['leftcollinks']): ?>
                     <div class="<?php print $rl_class; ?>">
                         <div class="wdn-footer-module">
-                            <span class="wdn-footer-heading" role="heading">Related Links</span>
                             <?php print render($page['leftcollinks']); ?>
                         </div>
                     </div>
