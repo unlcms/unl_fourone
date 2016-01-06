@@ -99,6 +99,40 @@ if ($format !== 'partial') : ?>
             <!-- InstanceEndEditable -->
         </div>
     </main>
+
+    <?php // @TODO Move this to template.php
+
+    $related_links_block = block_get_blocks_by_region('leftcollinks');
+
+    preg_match('/wdn-related-links-v(?<digit>\d+)/', render($related_links_block), $related_links);
+
+    $digit = array_key_exists('digit', $related_links) ? $related_links['digit'] : null;
+
+    switch ($digit) {
+        case '1' :
+            $wrapper_class = 'wdn-col-full bp640-wdn-col-two-thirds bp960-wdn-col-one-half';
+            $contact_class = 'wdn-grid-set-halves bp960-wdn-grid-set-halves';
+            $rl_class = 'wdn-col-full bp640-wdn-col-one-third bp960-wdn-col-one-half';
+            break;
+        case '2' :
+            $wrapper_class = 'wdn-col-full bp640-wdn-col-two-thirds bp960-wdn-col-one-half';
+            $contact_class = 'wdn-grid-set-halves bp960-wdn-grid-set-halves';
+            $rl_class = 'wdn-col-full bp960-wdn-col-one-half';
+            break;
+        case '3' :
+            $wrapper_class = 'wdn-col-full bp960-wdn-col-three-fourths';
+            $contact_class = 'wdn-grid-set-halves bp640-wdn-grid-set-thirds bp960-wdn-grid-set-thirds';
+            $rl_class = 'wdn-col-full bp960-wdn-col-one-fourth';
+            break;
+        case '4' :
+        default :
+            $wrapper_class = 'wdn-col-full bp960-wdn-col-one-half';
+            $contact_class = 'wdn-grid-set-full';
+            $rl_class = 'wdn-col-full bp960-wdn-col-one-half';
+    }
+
+    ?>
+
     <footer id="footer" role="contentinfo" class="wdn-content-slide">
         <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
             <div class="wdn-inner-wrapper">
@@ -111,10 +145,10 @@ if ($format !== 'partial') : ?>
             <div class="wdn-inner-wrapper">
                 <!-- InstanceBeginEditable name="contactinfo" -->
                 <div class="wdn-grid-set wdn-footer-links-local">
-                    <div class="wdn-col-full bp960-wdn-col-three-fourths">
+                    <div class="<?php print $wrapper_class; ?>">
                         <div class="wdn-footer-module">
                             <span class="wdn-footer-heading" role="heading"><?php print $site_name; ?><span class="wdn-text-hidden"> Contact Information</span></span>
-                            <div class="wdn-grid-set-halves bp640-wdn-grid-set-thirds bp960-wdn-grid-set-thirds">
+                            <div class="<?php print $contact_class; ?>">
                                 <div class="wdn-col">
                                 <?php print render($page['contactinfo']); ?>
                                 </div>
@@ -130,7 +164,7 @@ if ($format !== 'partial') : ?>
                     <!-- InstanceEndEditable -->
                     <!-- InstanceBeginEditable name="leftcollinks" -->
                     <?php if ($page['leftcollinks']): ?>
-                    <div class="wdn-col-full bp960-wdn-col-one-fourth">
+                    <div class="<?php print $rl_class; ?>">
                         <div class="wdn-footer-module">
                             <span class="wdn-footer-heading" role="heading">Related Links</span>
                             <?php print render($page['leftcollinks']); ?>
