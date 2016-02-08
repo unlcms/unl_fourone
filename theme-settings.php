@@ -216,7 +216,7 @@ function _unl_fourone_attach_syntax_highlighting(&$form, $css = TRUE, $js = TRUE
  * @TODO: Make this better using something other than site_name.
  */
 function _unl_fourone_use_wdn_beta() {
-  $site_name = variable_get('site_name');
+  $site_name = \Drupal::config('system.settings')->get('site_name');
   if (strpos($site_name, 'STAGING') === 0) {
     return TRUE;
   }

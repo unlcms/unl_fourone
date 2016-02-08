@@ -19,6 +19,9 @@ regions:
   page_top: Page top
   page_bottom: Page bottom
 
+  header: Header
+  breadcrumb: Breadcrumbs
+  pagetitle: Page Title
   navlinks: Navigation links
   content_top: Content top
   sidebar_first: Sidebar first
@@ -31,15 +34,3 @@ regions:
   contactinfo_additional: Contact info (Additional)
   socialmedia: Social media
   leftcollinks: Related links
-
-settings:
-  toggle_logo: 0
-  toggle_slogan: 0
-  toggle_favicon: 0
-
-  grid_class_sidebar_first: bp768-wdn-col-one-fourth
-  grid_class_sidebar_second: bp768-wdn-col-one-fourth
-  grid_class_content_one_sidebar: bp768-wdn-col-three-fourths
-  grid_class_content_two_sidebars: bp768-wdn-col-two-fourths
-  wdn_beta: 0
-  unl_affiliate: 0

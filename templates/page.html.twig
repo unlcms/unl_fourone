@@ -1,0 +1,127 @@
+<div id="wdn_wrapper">
+    <input type="checkbox" id="wdn_menu_toggle" value="Show navigation menu" class="wdn-content-slide wdn-input-driver" />
+    {% include "/wdn/templates_4.1/includes/noscript-padding.html"%}
+    <header id="header" role="banner" class="wdn-content-slide wdn-band">
+      {{ page.header }}
+    </header>
+    <div id="wdn_navigation_bar" class="wdn-band">
+        <nav id="breadcrumbs" class="wdn-inner-wrapper" role="navigation" aria-label="breadcrumbs">
+            <!-- InstanceBeginEditable name="breadcrumbs" -->
+            {{ page.breadcrumb }}
+            <!-- InstanceEndEditable -->
+        </nav>
+        <div id="wdn_navigation_wrapper">
+            <nav id="navigation" role="navigation" aria-label="main navigation">
+                <!-- InstanceBeginEditable name="navlinks" -->
+                {{ page.navlinks }}
+                <!-- InstanceEndEditable -->
+                {% include "/wdn/templates_4.1/includes/navigation-addons.html"%}
+            </nav>
+        </div>
+    </div>
+    <div class="wdn-menu-trigger wdn-content-slide">
+        <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
+        {% include "/wdn/templates_4.1/includes/share.html"%}
+    </div>
+    <main id="wdn_content_wrapper" role="main" class="wdn-content-slide" tabindex="-1">
+        <div id="maincontent" class="wdn-main">
+            <div id="pagetitle">
+                <!-- InstanceBeginEditable name="pagetitle" -->
+                {{ page.pagetitle }}
+                <!-- InstanceEndEditable -->
+            </div>
+            <!-- InstanceBeginEditable name="maincontentarea" -->
+            {{ page.content_top }}
+
+            {% if unl_remove_inner_wrapper %}
+            <div class="wdn-band">
+            {% endif %}
+
+                {% if page.sidebar_first or page.sidebar_second %}
+                <section class="wdn-grid-set">
+                {% endif %}
+
+                    <?php if($page['sidebar_first']): ?>
+                        {{ page.sidebar_first }}
+                    <?php endif; ?>
+
+                    <?php if (isset($page['sidebar_first']['#region']) && isset($page['sidebar_second']['#region'])): ?>
+                        <div class="<?php print theme_get_setting('grid_class_content_two_sidebars'%}">
+                            {{ page.content }}
+                        </div>
+                    <?php elseif (isset($page['sidebar_first']['#region']) || isset($page['sidebar_second']['#region'])): ?>
+                        <div class="<?php print theme_get_setting('grid_class_content_one_sidebar'%}">
+                            {{ page.content }}
+                        </div>
+                    <?php else: ?>
+                        {{ page.content }}
+                    <?php endif; ?>
+
+                    <?php if($page['sidebar_second']): ?>
+                        {{ page.sidebar_second }}
+                    <?php endif; ?>
+
+                {% if page.sidebar_first or page.sidebar_second %}
+                </section>
+                {% endif %}
+
+            {% if unl_remove_inner_wrapper %}
+            </div>
+            {% endif %}
+
+            {{ page.content_bottom }}
+            <!-- InstanceEndEditable -->
+        </div>
+    </main>
+
+
+
+    <footer id="footer" role="contentinfo" class="wdn-content-slide">
+        <div id="wdn_optional_footer" class="wdn-band wdn-footer-optional">
+            <div class="wdn-inner-wrapper">
+                <!-- InstanceBeginEditable name="optionalfooter" -->
+                {{ page.optionalfooter }}
+                <!-- InstanceEndEditable -->
+            </div>
+        </div>
+        <div id="wdn_local_footer" class="wdn-band wdn-footer-local">
+            <div class="wdn-inner-wrapper">
+                <!-- InstanceBeginEditable name="contactinfo" -->
+                <div class="wdn-grid-set wdn-footer-links-local">
+                    <div class="<?php print $wrapper_class; ?>">
+                        <div class="wdn-footer-module">
+                            <span class="wdn-footer-heading" role="heading"><?php print $site_name; ?><span class="wdn-text-hidden"> Contact Information</span></span>
+                            <div class="<?php print $contact_class; ?>">
+                                <div class="wdn-col">
+                                {{ page.contactinfo }}
+                                </div>
+                                <div class="wdn-col">
+                                {{ page.contactinfo_additional }}
+                                </div>
+                                <div class="wdn-col">
+                                {{ page.socialmedia }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- InstanceEndEditable -->
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
+                    {% if page.leftcollinks %}
+                    <div class="<?php print $rl_class; ?>">
+                        <div class="wdn-footer-module">
+                            {{ page.leftcollinks }}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- InstanceEndEditable -->
+            </div>
+        </div>
+        <div id="wdn_global_footer" class="wdn-band wdn-footer-global">
+            <div class="wdn-inner-wrapper">
+                {% include "/wdn/templates_4.1/includes/globalfooter.html"%}
+            </div>
+        </div>
+    </footer>
+    {% include "/wdn/templates_4.1/includes/noscript.html"%}
+</div>
