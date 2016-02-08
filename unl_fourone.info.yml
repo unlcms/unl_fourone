@@ -1,0 +1,45 @@
+name: UNLedu 4.1
+type: theme
+description: This theme tracks the 4.1.x version of the UNLedu Web Framework.
+core: 8.x
+
+libraries:
+  - unl_fourone/global-styling
+
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/style.css: {}
+      css/book-overrides.css: {}
+      css/menu-block.css: {}
+      css/views.css: {}
+
+regions:
+  page_top: Page top
+  page_bottom: Page bottom
+
+  navlinks: Navigation links
+  content_top: Content top
+  sidebar_first: Sidebar first
+  content: Content
+  sidebar_second: Sidebar second
+  content_bottom: Content bottom
+
+  optionalfooter: Optional footer
+  contactinfo: Contact info (Main)
+  contactinfo_additional: Contact info (Additional)
+  socialmedia: Social media
+  leftcollinks: Related links
+
+settings:
+  toggle_logo: 0
+  toggle_slogan: 0
+  toggle_favicon: 0
+
+  grid_class_sidebar_first: bp768-wdn-col-one-fourth
+  grid_class_sidebar_second: bp768-wdn-col-one-fourth
+  grid_class_content_one_sidebar: bp768-wdn-col-three-fourths
+  grid_class_content_two_sidebars: bp768-wdn-col-two-fourths
+  wdn_beta: 0
+  unl_affiliate: 0
