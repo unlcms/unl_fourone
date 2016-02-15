@@ -16,7 +16,7 @@
 
     $Id: fixed.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel $
  -->
-{% include "/wdn/templates_4.1/includes/scriptsandstyles.html" %}
+{% include "/wdn/templates_4.1/includes/scriptsandstyles_debug.html" %}
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>{{ head_title|safe_join(' | ') }}</title>
 <!-- InstanceEndEditable -->
@@ -25,6 +25,12 @@
   <css-placeholder token="{{ placeholder_token|raw }}">
   <js-placeholder token="{{ placeholder_token|raw }}">
   {# theme_get_setting('head_html') #}
+    <script>console.log('adsfasdfsadf');
+      require(['http://ucommrasmussen.unl.edu/workspace/UNL-CMS-2/core/assets/vendor/domready/ready.min.js'], function(domready) {
+        console.log('2222');
+        window.domready = domready;
+      })
+    </script>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="" -->
 </head>
@@ -33,7 +39,78 @@
 {{ page_top }}
 {{ page }}
 {{ page_bottom }}
-<js-bottom-placeholder token="{{ placeholder_token|raw }}">
+
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/workspace\/UNL-CMS-2\/","scriptPath":null,"pathPrefix":"","currentPath":"node","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"en"},"pluralDelimiter":"\u0003","ajaxPageState":{"libraries":"contextual\/drupal.contextual-links,contextual\/drupal.contextual-toolbar,core\/drupal.active-link,core\/html5shiv,quickedit\/quickedit,shortcut\/drupal.shortcut,system\/base,toolbar\/toolbar,toolbar\/toolbar.escapeAdmin,tour\/tour,unl_fourone\/global-styling,user\/drupal.user.icons,views\/views.module","theme":"unl_fourone","theme_token":null},"ajaxTrustedUrl":[],"toolbar":{"breakpoints":{"toolbar.narrow":"only screen and (min-width: 16.5em)","toolbar.standard":"only screen and (min-width: 38.125em)","toolbar.wide":"only screen and (min-width: 61em)"},"subtreesHash":"ouAFwVhsvT1P7xZfyP8Ot9rQaAqp_n7sf8kTOua9wXg"},"user":{"uid":"1","permissionsHash":"240e3cea56da7219fcef1246d6ee4bcc3effb08d44e04e65240957ec0471041a"}}</script>
+
+<!--[if lte IE 9]>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/classList/classList.min.js?v=2014-12-13"></script>
+<![endif]-->
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery/jquery.min.js?v=2.1.4"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/underscore/underscore-min.js?v=1.8.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/backbone/backbone-min.js?v=1.2.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.1.1"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/drupalSettingsLoader.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/drupal.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/core-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/widget-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/contextual.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/models/StateModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/views/AuralView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/views/KeyboardView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/views/RegionView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/views/VisualView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery-form/jquery.form.min.js?v=3.51"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/position-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/debounce.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/displace.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.cookie/jquery.cookie.min.js?v=1.4.1"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/form.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/progress.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/ajax.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/button-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/mouse-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/draggable-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/resizable-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery.ui/ui/dialog-min.js?v=1.11.4"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/dialog/dialog.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/dialog/dialog.position.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/dialog/dialog.jquery-ui.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/quickedit.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/util.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/models/BaseModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/models/AppModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/models/EntityModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/models/FieldModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/models/EditorModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/AppView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/FieldDecorationView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/EntityDecorationView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/EntityToolbarView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/ContextualLinkView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/FieldToolbarView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/views/EditorView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/quickedit/js/theme.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/active-link.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/announce.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/matchMedia/matchMedia.min.js?v=0.2.0"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/matchMedia/matchMedia.addListener.min.js?v=0.2.0"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/toolbar.menu.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/toolbar.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/models/MenuModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/models/ToolbarModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/views/BodyVisualView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/views/MenuVisualView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/views/ToolbarAuralView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/views/ToolbarVisualView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/assets/vendor/jquery-joyride/jquery.joyride-2.1.min.js?v=2.1.0"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/tour/js/tour.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/misc/tabbingmanager.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/contextual.toolbar.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/toolbar/models/StateModel.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/toolbar/views/AuralView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/contextual/js/toolbar/views/VisualView.js?v=8.0.3"></script>
+<script src="/workspace/UNL-CMS-2/core/modules/toolbar/js/escapeAdmin.js?v=8.0.3"></script>
+
 {% include "/wdn/templates_4.1/includes/body_scripts.html" %}
 </body>
 <!-- InstanceEnd --></html>
