@@ -265,3 +265,26 @@ function unl_fourone_file($vars) {
   //theme it to add labels
   return theme('form_element', $vars);
 }
+
+/**
+ * Returns HTML for a managed file element.
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - element: A render element representing the file.
+ *
+ * @ingroup themeable
+ */
+function unl_fourone_file_managed_file($variables) {
+  /*
+   * Remove the duplicate ID from the wrapper DIV
+   * The same ID that was on the <input> was being applied
+   * to the wrapper .form-managed-file div, which was
+   * throwing errors.
+   */
+  if (isset($variables['element']['#id'])) {
+    unset($variables['element']['#id']);
+  }
+
+  return theme_file_managed_file($variables);
+}
