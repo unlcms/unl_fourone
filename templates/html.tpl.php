@@ -2,7 +2,7 @@
 if ($format !== 'partial') : ?><!DOCTYPE html>
 <html class="no-js" lang="<?php print $language->language; ?>"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<?php virtual("/wdn/templates_4.1/includes/metanfavico.html"); ?>
+<?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/metanfavico.html"); ?>
 <!--
     Membership and regular participation in the UNL Web Developer Network
     is required to use the UNL templates. Visit the WDN site at
@@ -17,7 +17,7 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
 
     $Id: fixed.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel $
  -->
-<?php virtual("/wdn/templates_4.1/includes/scriptsandstyles.html"); ?>
+<?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/scriptsandstyles.html"); ?>
 <!-- InstanceBeginEditable name="doctitle" -->
 <title><?php print $head_title; ?></title>
 <!-- InstanceEndEditable -->
@@ -30,13 +30,13 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
 <!-- InstanceParam name="class" type="text" value="" -->
 </head>
 <body class="<?php print $classes; ?>" data-version="4.1" <?php print $attributes;?>>
-<?php virtual("/wdn/templates_4.1/includes/skipnav.html"); ?>
+<?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/skipnav.html"); ?>
 <?php print $page_top; ?>
 <?php endif; ?>
 <?php print $page; ?>
 <?php if ($format !== 'partial') : ?>
 <?php print $page_bottom; ?>
-<?php virtual("/wdn/templates_4.1/includes/body_scripts.html"); ?>
+<?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/body_scripts.html"); ?>
 </body>
 <!-- InstanceEnd --></html>
 <?php endif; ?>
