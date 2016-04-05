@@ -161,16 +161,16 @@ if ($format !== 'partial') : ?>
                             </div>
                         </div>
                     </div>
-                    <!-- InstanceEndEditable -->
-                    <!-- InstanceBeginEditable name="leftcollinks" -->
                     <?php if ($page['leftcollinks']): ?>
-                    <div class="<?php print $rl_class; ?>">
-                        <div class="wdn-footer-module">
-                            <?php print render($page['leftcollinks']); ?>
+                        <div class="<?php print $rl_class; ?>">
+                            <div class="wdn-footer-module">
+                                <?php print render($page['leftcollinks']); ?>
+                            </div>
                         </div>
-                    </div>
                     <?php endif; ?>
                 </div>
+                <!-- InstanceEndEditable -->
+                <!-- InstanceBeginEditable name="leftcollinks" -->
                 <!-- InstanceEndEditable -->
             </div>
         </div>
