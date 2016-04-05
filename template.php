@@ -319,6 +319,12 @@ function unl_fourone_username_alter(&$name, $account) {
  * Implements template_preprocess_page().
  */
 function unl_fourone_preprocess_page(&$vars, $hook) {
+  // Wrap 403 and 404 pages in WDN wrappers.
+  $header = drupal_get_http_header("status");
+  if ($header == "404 Not Found" || $header == "403 Forbidden") {
+    $vars['page']['content']['system_main']['main']['#markup'] = '<div class="wdn-band"><div class="wdn-inner-wrapper">' . $vars['page']['content']['system_main']['main']['#markup'] . '</div></div>';
+  }
+
   // Add the variable based on the Publishing Option flag set in the unl module.
   $vars['unl_remove_inner_wrapper'] = FALSE;
   $nid_exclude_list = variable_get('unl_remove_inner_wrapper', array());
