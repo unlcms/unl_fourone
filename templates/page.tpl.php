@@ -63,7 +63,7 @@ if ($format !== 'partial') : ?>
             <?php endif; ?>
 
                 <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
-                <section class="wdn-grid-set">
+                <div class="wdn-band"><div class="wdn-inner-wrapper wdn-inner-padding-no-top"><section class="wdn-grid-set">
                 <?php endif; ?>
 
                     <?php if($page['sidebar_first']): ?>
@@ -87,7 +87,7 @@ if ($format !== 'partial') : ?>
                     <?php endif; ?>
 
                 <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>
-                </section>
+                </section></div></div>
                 <?php endif; ?>
 
             <?php if ($unl_remove_inner_wrapper): ?>
