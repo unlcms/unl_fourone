@@ -14,9 +14,9 @@
 .block-menu-block ul a {border: none; font-size: .75rem}
 .block-menu-block ul:first-child > li,
 .block-menu-block ul:first-child > li > ul > li {list-style-image: none; list-style-type: none;}
-.block-menu-block ul:first-child > li > a {display: block; padding-left: 2.532em; background-color: #eae9e6;}
 .block-menu-block ul:first-child > li > a,
 .block-menu-block ul:first-child > li > ul > li > a {display: block; margin-bottom: 1px; padding-top: .75em; padding-bottom: .75em; padding-left: 4.209em; background-color: #f4f3f0;}
+.block-menu-block ul:first-child > li > a {display: block; padding-left: 2.532em; background-color: #eae9e6;}
 .block-menu-block ul:first-child > li > ul > li > ul {padding: .75em 0 .75em 4.209em;}
 .block-menu-block ul:first-child > li > ul > li > ul a {display: block; padding-top: .254em; padding-bottom: .254em;}
 .block-menu-block ul:first-child > li:last-child > a {border: none; margin: 0;}
