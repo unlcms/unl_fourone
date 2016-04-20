@@ -6,7 +6,7 @@
 .block-menu-block a {padding-right: 1.777em; color: #474746;}
 .block-menu-block a:hover {cursor: pointer; color: #d00000;}
 .block-menu-block a.active {color: #6a0000;}
-.block-menu-block h3 {padding-top: 1.333em; padding-bottom: 1.069em; padding-left: 1em; background-color: #474746; color: #fefdfa; font-size: .802rem; text-transform: uppercase; margin: 0; line-height: 1.333}
+.block-menu-block h3 {padding-top: 1rem; padding-bottom: .75rem; padding-left: 1.425rem; background-color: #474746; color: #fefdfa; font-size: .802rem; text-transform: uppercase; margin: 0; line-height: 1.333}
 .block-menu-block h3 a {display: block; border: none; color: #fefdfa;}
 .block-menu-block h3 a.active {color: #fff; background-color: transparent !important;}
 .block-menu-block ul {background-color: #fff; padding: 0; list-style-image: none; list-style-type: none; margin: 0;}
@@ -15,18 +15,24 @@
 .block-menu-block ul:first-child > li,
 .block-menu-block ul:first-child > li > ul > li {list-style-image: none; list-style-type: none;}
 .block-menu-block ul:first-child > li > a,
-.block-menu-block ul:first-child > li > ul > li > a {display: block; margin-bottom: 1px; padding-top: .75em; padding-bottom: .75em; padding-left: 4.209em; background-color: #f4f3f0;}
-.block-menu-block ul:first-child > li > a {display: block; padding-left: 2.532em; background-color: #eae9e6;}
-.block-menu-block ul:first-child > li > ul > li > ul {padding: .75em 0 .75em 4.209em;}
+.block-menu-block ul:first-child > li > ul > li > a {display: block; margin-bottom: 1px; padding-top: .75em; padding-bottom: .75em; background-color: #f4f3f0;}
+.block-menu-block ul:first-child > li > a {display: block; padding-left: 2.369rem; background-color: #eae9e6;}
+.block-menu-block ul:first-child > li > ul > li > a {padding-left: 3.157rem;}
+.block-menu-block ul:first-child > li > ul > li > ul {padding: .451em 0 .451em 3.157em;}
 .block-menu-block ul:first-child > li > ul > li > ul a {display: block; padding-top: .254em; padding-bottom: .254em;}
 .block-menu-block ul:first-child > li:last-child > a {border: none; margin: 0;}
 .block-menu-block ul:first-child > li > ul > li > ul ul {padding-top: .451em; padding-bottom: 0; padding-left: 1em;}
-.block-menu-block ul:first-child > li > ul > li > ul li {padding: 0;}
+.block-menu-block ul:first-child > li > ul > li > ul li {padding-left: 1em;}
 .block-menu-block li.collapsed > a,
-.block-menu-block li.expanded > a {position: relative;}
+.block-menu-block li.expanded > a,
+.block-menu-block li.leaf > a {position: relative;}
 .block-menu-block li.collapsed > a:before,
-.block-menu-block li.expanded > a:before {position: absolute; top: 50%; transform: translateY(-50%); margin-left: -1.777em; font-size: .6rem; color: #5b5b5a;}
+.block-menu-block li.expanded > a:before,
+.block-menu-block ul > li > ul > li > ul li.leaf > a:before {position: absolute; top: 50%; transform: translateY(-50%); margin-left: -.75rem; font-size: .451rem; color: #5b5b5a;}
+.block-menu-block li.collapsed > a:before,
+.block-menu-block li.expanded > a:before {font-size: .451rem;}
 .block-menu-block li.collapsed > a:before {content: '\25B6';}
 .block-menu-block li.expanded > a:before {content: '\25BC';}
+.block-menu-block ul > li > ul > li > ul li.leaf > a:before {content: '\2022';}
 .block-menu-block ul li.leaf,
-.block-menu-block ul li.expanded { list-style-image: none; list-style-type: disc; }
+.block-menu-block ul li.expanded {list-style-image: none; list-style-type: none;}
