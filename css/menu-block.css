@@ -8,7 +8,7 @@
 .block-menu-block a.active {color: #6a0000;}
 .block-menu-block h3 {padding-top: 1.333em; padding-bottom: 1.069em; padding-left: 1em; background-color: #474746; color: #fefdfa; font-size: .802rem; text-transform: uppercase; margin: 0; line-height: 1.333}
 .block-menu-block h3 a {display: block; border: none; color: #fefdfa;}
-.block-menu-block h3 a.active {background-color: transparent !important;}
+.block-menu-block h3 a.active {color: #fff; background-color: transparent !important;}
 .block-menu-block ul {background-color: #fff; padding: 0; list-style-image: none; list-style-type: none; margin: 0;}
 .block-menu-block li {padding: 0; line-height: 1.333;}
 .block-menu-block ul a {border: none; font-size: .75rem}
