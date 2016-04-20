@@ -210,7 +210,8 @@ input.webform-calendar {
 }
 
 /* book pages */
-ul li.leaf {
+ul li.leaf,
+ul li.expanded {
   list-style-image: none;
   list-style-type: disc;
 }
