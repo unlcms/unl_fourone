@@ -208,10 +208,3 @@ input.webform-calendar {
   float: left;
   margin: 0 20px 30px 0;
 }
-
-/* book pages */
-ul li.leaf,
-ul li.expanded {
-  list-style-image: none;
-  list-style-type: disc;
-}

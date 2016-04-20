@@ -28,3 +28,5 @@
 .block-menu-block li.expanded > a:before {position: absolute; top: 50%; transform: translateY(-50%); margin-left: -1.777em; font-size: .6rem; color: #5b5b5a;}
 .block-menu-block li.collapsed > a:before {content: '\25B6';}
 .block-menu-block li.expanded > a:before {content: '\25BC';}
+.block-menu-block ul li.leaf,
+.block-menu-block ul li.expanded { list-style-image: none; list-style-type: disc; }
