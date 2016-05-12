@@ -35,4 +35,5 @@
 .block-menu-block li.expanded > a:before {content: '\25BC';}
 .block-menu-block ul > li > ul > li > ul li.leaf > a:before {content: '\2022';}
 .block-menu-block ul li.leaf,
+.block-menu-block ul li.collapsed,
 .block-menu-block ul li.expanded {list-style-image: none; list-style-type: none;}
