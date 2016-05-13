@@ -3,8 +3,8 @@
  * book navigation block in unl_fourone_preprocess_block().
  */
 
-.block-menu-block a {padding-right: 1.777em; color: #474746;}
-.block-menu-block a:hover {cursor: pointer; color: #d00000;}
+.block-menu-block a {padding-right: 1.777em; color: #474746; transition: color .5s ease-out;}
+.block-menu-block a:hover {cursor: pointer; color: #d00000; transition: color .2s ease-out;}
 .block-menu-block a.active {color: #6a0000;}
 .block-menu-block h3 {padding-top: .75rem; padding-bottom: .602rem; padding-left: 1.425rem; background-color: #474746; color: #fefdfa; font-size: .802rem; text-transform: uppercase; margin: 0; line-height: 1.333}
 .block-menu-block h3 a {display: block; border: none; color: #fefdfa;}
@@ -35,5 +35,4 @@
 .block-menu-block li.expanded > a:before {content: '\25BC';}
 .block-menu-block ul > li > ul > li > ul li.leaf > a:before {content: '\2022';}
 .block-menu-block ul li.leaf,
-.block-menu-block ul li.collapsed,
 .block-menu-block ul li.expanded {list-style-image: none; list-style-type: none;}
