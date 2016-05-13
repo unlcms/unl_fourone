@@ -5,7 +5,7 @@
 
 .block-menu-block a {padding-right: 1.777em; color: #474746; transition: color .5s ease-out;}
 .block-menu-block a:hover {cursor: pointer; color: #d00000; transition: color .2s ease-out;}
-.block-menu-block a.active {color: #6a0000;}
+.block-menu-block a.active {color: #d00000; border-left: 5px solid #d00000;}
 .block-menu-block h3 {padding-top: .75rem; padding-bottom: .602rem; padding-left: 1.425rem; background-color: #474746; color: #fefdfa; font-size: .802rem; text-transform: uppercase; margin: 0; line-height: 1.333}
 .block-menu-block h3 a {display: block; border: none; color: #fefdfa;}
 .block-menu-block h3 a.active {color: #fff; background-color: transparent !important;}
