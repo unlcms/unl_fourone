@@ -6,5 +6,5 @@
 
 .form-item .description {position: relative;}
 .webform-component-date select {width: auto;}
-.webform-component-webform_time select {width: auto;}
-.webform-component-managed_file input[type=file] {width: auto;}
+.webform-component-time select {width: auto;}
+.webform-component-file input[type=file] {width: auto;}
