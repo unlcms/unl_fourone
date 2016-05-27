@@ -10,7 +10,7 @@
 .block-menu-block h3 a.active {color: #fff; background-color: transparent !important;}
 .block-menu-block ul {background-color: #fff; padding: 0; list-style-image: none; list-style-type: none; margin: 0;}
 .block-menu-block li {padding: 0; line-height: 1.333;}
-.block-menu-block ul a {border: none; font-size: .75rem}
+.block-menu-block ul a {border: none; font-size: .75rem;}
 .block-menu-block ul a:active {color: #d00000; border-left: 5px solid #d00000;}
 .block-menu-block ul:first-child > li,
 .block-menu-block ul:first-child > li > ul > li {list-style-image: none; list-style-type: none;}
