@@ -19,7 +19,7 @@
 .block-menu-block ul:first-child > li > a {display: block; padding-left: 1.75rem; background-color: #eae9e6;}
 .block-menu-block ul:first-child > li > a.active {padding-left: calc(1.75rem - 5px);}
 .block-menu-block ul:first-child > li > ul > li > a {padding-left: 2.5rem;}
-.block-menu-block ul:first-child > li > ul > li > a.active {padding-left: calc(2.5rem - 5px);
+.block-menu-block ul:first-child > li > ul > li > a.active {padding-left: calc(2.5rem - 5px);}
 .block-menu-block ul:first-child > li > ul > li > ul {padding: .451em 0 .451em 2.5rem;}
 .block-menu-block ul:first-child > li > ul > li > ul a {display: block; padding-top: .254em; padding-bottom: .254em;}
 .block-menu-block ul:first-child > li:last-child > a {border: none; margin: 0;}
