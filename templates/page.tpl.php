@@ -46,7 +46,7 @@ if ($format !== 'partial') : ?>
             <div id="pagetitle">
                 <!-- InstanceBeginEditable name="pagetitle" -->
                 <?php print render($title_prefix); ?>
-                <?php if ($title): ?><h1><?php print $title; ?></h1><?php endif; ?>
+                <?php if ($title): ?><h1 <?php if ($unl_hide_page_title): ?> class="wdn-text-hidden"<?php endif; ?>><?php print $title; ?></h1><?php endif; ?>
                 <?php print render($title_suffix); ?>
                 <!-- InstanceEndEditable -->
             </div>

@@ -326,6 +326,13 @@ function unl_fourone_preprocess_page(&$vars, $hook) {
   }
 
   // Add the variable based on the Publishing Option flag set in the unl module.
+  $vars['unl_hide_page_title'] = FALSE;
+  $nid_exclude_list = variable_get('unl_hide_page_title', array());
+  if (isset($vars['node']) && in_array($vars['node']->nid, $nid_exclude_list)) {
+    $vars['unl_hide_page_title'] = TRUE;
+  }
+
+  // Add the variable based on the Publishing Option flag set in the unl module.
   $vars['unl_remove_inner_wrapper'] = FALSE;
   $nid_exclude_list = variable_get('unl_remove_inner_wrapper', array());
   if (isset($vars['node']) && in_array($vars['node']->nid, $nid_exclude_list)) {
