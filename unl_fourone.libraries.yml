@@ -2,9 +2,10 @@ global-styling:
   version: VERSION
   css:
     component:
+      css/book.css: {}
       css/components/local-tasks.css: {}
-    theme:
-      css/style.css: {}
-      css/book-overrides.css: {}
-      css/menu-block.css: {}
+      css/components/form.css: {}
       css/views.css: {}
+    theme:
+      css/menu-block.css: {}
+      css/style.css: {}
