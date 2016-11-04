@@ -1,0 +1,10 @@
+global-styling:
+  version: VERSION
+  css:
+    component:
+      css/components/local-tasks.css: {}
+    theme:
+      css/style.css: {}
+      css/book-overrides.css: {}
+      css/menu-block.css: {}
+      css/views.css: {}
