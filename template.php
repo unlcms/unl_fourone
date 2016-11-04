@@ -121,6 +121,9 @@ function unl_fourone_html_head_alter(&$head_elements) {
     '#type' => 'html_tag'
   );
   $head_elements['drupal_add_html_head_link:home'] = $element;
+
+  // Remove due to w3c error: <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  unset($head_elements['system_meta_content_type']);
 }
 
 /**
