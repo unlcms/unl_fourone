@@ -1,0 +1,28 @@
+<?php
+//require_once dirname(__FILE__) . '/includes/forms.inc';
+
+/**
+ * Implementation of hook_html_head_alter().
+ */
+function unl_fourone_preprocess_html(&$variables) {
+
+  // If <link rel="home"> has already been set elsewhere (in a Context for example) then return...
+  foreach ($variables['page']['#attached']['html_head'] as $key => $element) {
+    if ($element[0]["#tag"] == 'link' && isset($element[0]['#attributes']['rel']) && $element[0]['#attributes']['rel'] == 'home') {
+      return;
+    }
+  }
+
+  // ...otherwise add a <link rel="home"> tag with the front page as the href attribute
+  $element = array(
+      '#tag' => 'link',
+      '#attributes' => array(
+          'rel' => 'home',
+          'href' => \Drupal\Core\Url::fromRoute('<front>', array(), array('absolute' => TRUE))->toString(),
+      ),
+      '#type' => 'html_tag'
+  );
+  $variables['page']['#attached']['html_head'][] = array($element, 'link-rel-home');
+}
+
+
