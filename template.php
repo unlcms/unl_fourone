@@ -627,64 +627,6 @@ function unl_fourone_pager($variables) {
   }
 }
 
-function unl_fourone_status_messages($variables) {
-  $display = $variables['display'];
-
-  $output = '';
-  foreach (drupal_get_messages($display) as $type => $messages) {
-    switch ($type) {
-      case 'status':
-        $extra_class = ' affirm';
-        break;
-      case 'warning':
-        $extra_class = ' alert';
-        break;
-      case 'error':
-        $extra_class = ' negate';
-        break;
-      default:
-        $extra_class = '';
-        break;
-    }
-    $type = ucfirst($type);
-    $output .= <<<EOF
-<div class="wdn_notice overlay-header$extra_class">
-    <div class="close">
-        <a href="#" title="Close this notice">Close this notice</a>
-    </div>
-    <div class="message">
-        <h4>$type</h4>
-EOF;
-    if (count($messages) > 1) {
-      $output .= '<ul>' . PHP_EOL;
-      foreach ($messages as $message) {
-        $output .= '<li>' . $message . '</li>' . PHP_EOL;
-      }
-      $output .= '</ul>' . PHP_EOL;
-    }
-    else {
-      $output .= $messages[0];
-    }
-    $output .= <<<EOF
-    </div>
-</div>
-EOF;
-  }
-
-  if (!$output) {
-    return '';
-  }
-
-  $output = <<<EOF
-<script type="text/javascript">
-WDN.initializePlugin('notice');
-</script>
-$output
-EOF;
-
-  return $output;
-}
-
 /**
  * Return the abbreviated site name, assuming it has been set. Otherwise return the full site name.
  */
