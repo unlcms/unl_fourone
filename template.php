@@ -473,45 +473,6 @@ function unl_fourone_menu_tree($variables) {
 }
 
 /**
- * Implements theme_menu_local_tasks().
- */
-function unl_fourone_menu_local_tasks($variables) {
-  $output = '';
-
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<ul class="wdn_tabs cms_tabs disableSwitching">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
-  }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<ul class="wdn_tabs cms_tabs disableSwitching">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
-  }
-
-  return $output;
-}
-
-/**
- * Implements theme_menu_local_task().
- */
-function unl_fourone_menu_local_task($variables) {
-  $link = $variables['element']['#link'];
-  $link_text = $link['title'];
-
-  if (!empty($variables['element']['#active'])) {
-    // If the link does not contain HTML already, check_plain() it now.
-    // After we set 'html'=TRUE the link will not be sanitized by l().
-    if (empty($link['localized_options']['html'])) {
-      $link['title'] = check_plain($link['title']);
-    }
-    $link['localized_options']['html'] = TRUE;
-    $link_text = t('!local-task-title !active', array('!local-task-title' => $link['title'], '!active' => ''));
-  }
-  return '<li' . (!empty($variables['element']['#active']) ? ' class="selected"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
-}
-
-/**
  * Implements theme_pager().
  */
 function unl_fourone_pager($variables) {
