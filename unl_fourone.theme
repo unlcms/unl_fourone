@@ -2,7 +2,7 @@
 //require_once dirname(__FILE__) . '/includes/forms.inc';
 
 /**
- * Implementation of hook_html_head_alter().
+ * Implements template_preprocess_html().
  */
 function unl_fourone_preprocess_html(&$variables) {
 
@@ -25,4 +25,14 @@ function unl_fourone_preprocess_html(&$variables) {
   $variables['page']['#attached']['html_head'][] = array($element, 'link-rel-home');
 }
 
-
+/**
+ * Implements template_preprocess_field().
+ */
+function unl_fourone_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  if ($element['#field_name'] == 'field_hero_link') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['items'][$key]['content']['#options']['attributes']['class'] = array('wdn-button', 'wdn-button-outline');
+    }
+  }
+}
