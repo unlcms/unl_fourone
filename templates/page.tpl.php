@@ -16,7 +16,7 @@ if ($format !== 'partial') : ?>
             <div class="wdn-inner-wrapper">
                 <?php include(DRUPAL_ROOT . "/wdn/templates_4.1/includes/logo.html"); ?>
                 <!-- InstanceBeginEditable name="titlegraphic" -->
-                <span id="wdn_site_affiliation"><?php if ($site_slogan): ?><?php print $site_slogan; ?><?php endif; ?></span>
+                <span id="wdn_site_affiliation"><?php if (theme_get_setting('unl_rso')): ?>A UNL Recognized Student Organization<?php elseif ($site_slogan): ?><?php print $site_slogan; ?><?php endif; ?></span>
                 <span id="wdn_site_title"><!-- InstanceBeginEditable name="titlegraphic" --><?php if ($site_name): ?><a href="<?php print $front_page; ?>"><?php print $site_name; ?></a><?php endif; ?><!-- InstanceEndEditable --></span>
                 <!-- InstanceEndEditable -->
             </div>

@@ -365,9 +365,9 @@ function unl_fourone_process_page(&$vars) {
 
   // Add RSO disclaimer.
   if (theme_get_setting('unl_rso')) {
-    foreach ($vars['page']['footercontent'] as $block => $value) {
-      if (!empty($vars['page']['footercontent'][$block]['#markup'])) {
-        $vars['page']['footercontent'][$block]['#markup'] =  $vars['page']['footercontent'][$block]['#markup'] . '<br />The views presented here are those of the ' . variable_get('site_name') . ' and do not necessarily reflect the views of the University of Nebraska&ndash;Lincoln.';
+    foreach ($vars['page']['contactinfo'] as $block => $value) {
+      if (!empty($vars['page']['contactinfo'][$block]['#markup'])) {
+        $vars['page']['contactinfo'][$block]['#markup'] =  $vars['page']['contactinfo'][$block]['#markup'] . '<br />The views presented here are those of the <em>' . variable_get('site_name') . '</em> student organization and do not necessarily reflect the views of the University of Nebraska&ndash;Lincoln.';
       }
     }
   }
