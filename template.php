@@ -446,7 +446,7 @@ function unl_fourone_breadcrumb($variables) {
 
   //Prepend UNL
   if (variable_get('site_name') != 'UNL') {
-    array_unshift($breadcrumbs, '<a href="http://www.unl.edu/">UNL</a>');
+    array_unshift($breadcrumbs, '<a href="http://www.unl.edu/">Nebraska</a>');
   }
 
   // Append menu link title of current page -- http://drupal.org/node/133242
