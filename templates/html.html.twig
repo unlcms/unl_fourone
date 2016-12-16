@@ -26,6 +26,13 @@
 <js-placeholder token="{{ placeholder_token|raw }}">
 <js-bottom-placeholder token="{{ placeholder_token }}">
 {% include "/wdn/templates_4.1/includes/scriptsandstyles.html" %}
+  <script>
+    require(['idm'], function(idm) {
+      idm.setLoginURL('{{ url('<front>') }}user/login?destination={{ path('<current>') }}');
+      idm.setLogoutURL('user/logout');
+    });
+
+  </script>
 <!-- InstanceEndEditable -->
 <!-- InstanceParam name="class" type="text" value="" -->
 </head>

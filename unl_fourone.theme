@@ -54,19 +54,18 @@ function unl_fourone_preprocess_html(&$variables) {
   );
 }
 
-
 /**
  * Implements template_preprocess_block().
  */
 function unl_fourone_preprocess_block(&$variables) {
   // Add Menu Block class to book navigation block so that they can share CSS.
-  if ($variables['block_html_id'] == 'block-book-navigation') {
-    $variables['classes_array'][] = 'block-menu-block';
+  if ($variables['plugin_id'] == 'book_navigation') {
+    $variables['attributes']['class'][] = 'block-menu-block';
   }
   // Add .wdn-sans-serif to menu blocks.
-  if ($variables['block_html_id'] == 'block-book-navigation' || substr($variables['block_html_id'], 0, 16) == 'block-menu-block' ) {
-    $variables['classes_array'][] = 'wdn-sans-serif';
-    $variables['title_attributes_array']['class'][] = 'wdn-sans-serif';
+  if ($variables['plugin_id'] == 'book_navigation' || substr($variables['plugin_id'], 0, 16) == 'block-menu-block' ) {
+    $variables['attributes']['classes'][] = 'wdn-sans-serif';
+    $variables['title_attributes']['class'][] = 'wdn-sans-serif';
   }
 
   // Change Site Title to the Group title
