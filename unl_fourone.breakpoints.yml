@@ -1,0 +1,81 @@
+unl_fourone.wdn_breakpoints.base:
+  label: full
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+  group: wdn_breakpoints
+unl_fourone.wdn_breakpoints.bp480:
+  label: bp480
+  mediaQuery: '(min-width: 480px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+  group: wdn_breakpoints
+unl_fourone.wdn_breakpoints.bp640:
+  label: bp640
+  mediaQuery: '(min-width: 640px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+  group: wdn_breakpoints
+unl_fourone.wdn_breakpoints.bp768:
+  label: bp768
+  mediaQuery: '(min-width: 768px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+  group: wdn_breakpoints
+unl_fourone.wdn_breakpoints.bp960:
+  label: bp960
+  mediaQuery: '(min-width: 960px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x
+  group: wdn_breakpoints
+unl_fourone.wdn_breakpoints.bp1280:
+  label: bp1280
+  mediaQuery: '(min-width: 1280px)'
+  weight: 5
+  multipliers:
+    - 1x
+    - 2x
+  group: wdn_breakpoints
+unl_fourone.wdn_breakpoints.bp1600:
+  label: bp1600
+  mediaQuery: '(min-width: 1600px)'
+  weight: 6
+  multipliers:
+    - 1x
+    - 2x
+  group: wdn_breakpoints
+
+
+
+unl_fourone.group2.mobile:
+  label: narrow
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+  group: unl_fourone.group2
+unl_fourone.group2.narrower:
+  label: narrow
+  mediaQuery: '(min-width: 400px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+  group: unl_fourone.group2
+unl_fourone.group2.wider:
+  label: wide
+  mediaQuery: '(min-width: 1001px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+  group: unl_fourone.group2
