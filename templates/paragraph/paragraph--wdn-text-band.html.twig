@@ -1,0 +1,9 @@
+{% extends "paragraph.html.twig" %}
+
+{% block content %}
+  <div {{ attributes.addClass('wdn-band wdn-text-band').addClass(classes) }}>
+    <div class="wdn-inner-wrapper">
+      {{ content }}
+    </div>
+  </div>
+{% endblock %}
