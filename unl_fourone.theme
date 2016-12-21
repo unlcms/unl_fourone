@@ -54,6 +54,11 @@ function unl_fourone_preprocess_html(&$variables) {
   );
 }
 
+function unl_fourone_preprocess_page(&$variables) {
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+}
+
+
 /**
  * Implements template_preprocess_block().
  */
