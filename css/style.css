@@ -3,3 +3,9 @@
  * CSS that does appear here is for CMS specific items or modifications
  * that need to be made for WDN styles to work with CMS DOM structure.
  */
+
+/* The exclude_node_title module empties the h1 text but leaves the empty element
+   See: https://www.drupal.org/node/2624734 */
+#pagetitle h1:empty {
+    display: none;
+}
