@@ -4,6 +4,7 @@ unl_fourone.wdn_breakpoints.base:
   weight: 0
   multipliers:
     - 1x
+    - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp480:
   label: bp480
