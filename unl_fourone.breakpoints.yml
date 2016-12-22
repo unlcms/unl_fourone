@@ -4,6 +4,7 @@ unl_fourone.wdn_breakpoints.base:
   weight: 0
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp480:
@@ -12,6 +13,7 @@ unl_fourone.wdn_breakpoints.bp480:
   weight: 1
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp640:
@@ -20,6 +22,7 @@ unl_fourone.wdn_breakpoints.bp640:
   weight: 2
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp768:
@@ -28,6 +31,7 @@ unl_fourone.wdn_breakpoints.bp768:
   weight: 3
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp960:
@@ -36,6 +40,7 @@ unl_fourone.wdn_breakpoints.bp960:
   weight: 4
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp1280:
@@ -44,6 +49,7 @@ unl_fourone.wdn_breakpoints.bp1280:
   weight: 5
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp1600:
@@ -52,6 +58,7 @@ unl_fourone.wdn_breakpoints.bp1600:
   weight: 6
   multipliers:
     - 1x
+    - 1.5x
     - 2x
   group: wdn_breakpoints
 
