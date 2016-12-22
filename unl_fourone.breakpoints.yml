@@ -7,7 +7,7 @@ unl_fourone.wdn_breakpoints.base:
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp480:
   label: bp480
-  mediaQuery: '(min-width: 480px)'
+  mediaQuery: '(min-width: 30em)'
   weight: 1
   multipliers:
     - 1x
@@ -15,7 +15,7 @@ unl_fourone.wdn_breakpoints.bp480:
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp640:
   label: bp640
-  mediaQuery: '(min-width: 640px)'
+  mediaQuery: '(min-width: 40em)'
   weight: 2
   multipliers:
     - 1x
@@ -23,7 +23,7 @@ unl_fourone.wdn_breakpoints.bp640:
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp768:
   label: bp768
-  mediaQuery: '(min-width: 768px)'
+  mediaQuery: '(min-width: 48em)'
   weight: 3
   multipliers:
     - 1x
@@ -31,7 +31,7 @@ unl_fourone.wdn_breakpoints.bp768:
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp960:
   label: bp960
-  mediaQuery: '(min-width: 960px)'
+  mediaQuery: '(min-width: 60em)'
   weight: 4
   multipliers:
     - 1x
@@ -39,7 +39,7 @@ unl_fourone.wdn_breakpoints.bp960:
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp1280:
   label: bp1280
-  mediaQuery: '(min-width: 1280px)'
+  mediaQuery: '(min-width: 80em)'
   weight: 5
   multipliers:
     - 1x
@@ -47,7 +47,7 @@ unl_fourone.wdn_breakpoints.bp1280:
   group: wdn_breakpoints
 unl_fourone.wdn_breakpoints.bp1600:
   label: bp1600
-  mediaQuery: '(min-width: 1600px)'
+  mediaQuery: '(min-width: 100em)'
   weight: 6
   multipliers:
     - 1x
