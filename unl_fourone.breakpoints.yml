@@ -1,5 +1,5 @@
 unl_fourone.wdn_breakpoints.base:
-  label: full
+  label: base
   mediaQuery: ''
   weight: 0
   multipliers:
