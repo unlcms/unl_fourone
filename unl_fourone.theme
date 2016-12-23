@@ -146,6 +146,14 @@ function unl_fourone_preprocess_field(&$variables) {
   }
 }
 
+function unl_fourone_preprocess_webform_composite_address(&$variables) {
+  $containerKey = array_search('container', $variables['element']['#theme_wrappers']);
+
+  if (in_array('fieldset', $variables['element']['#theme_wrappers']) && $containerKey !== false) {
+    unset($variables['element']['#theme_wrappers'][$containerKey]);
+  }
+}
+
 /**
  * Safely get the og.context, if og is enabled
  *
