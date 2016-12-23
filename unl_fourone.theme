@@ -58,6 +58,26 @@ function unl_fourone_preprocess_page(&$variables) {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }
 
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function unl_fourone_page_attachments_alter(&$attachments) {
+  $metaToRemove = [
+    'system_meta_content_type',
+    'viewport',
+  ];
+  foreach ($attachments['#attached']['html_head'] as $key => $element) {
+    if (in_array($element[1], $metaToRemove)) {
+      unset($attachments['#attached']['html_head'][$key]);
+    }
+  }
+}
+
+function unl_fourone_js_alter(&$js, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+  if (in_array('unl_fourone/amd', $assets->libraries)) {
+    $js['themes/unl_fourone/js/amd-enable.js']['weight'] += 999;
+  }
+}
 
 /**
  * Implements template_preprocess_block().

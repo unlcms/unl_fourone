@@ -9,3 +9,21 @@ global-styling:
     theme:
       css/menu-block.css: {}
       css/style.css: {}
+
+messages:
+  version: VERSION
+  js:
+    js/messages.js: {}
+
+amd:
+  version: VERSION
+  js:
+    js/amd-disable.js: { weight: -999 }
+    js/amd-enable.js: {}
+
+idm:
+  version: VERSION
+  js:
+    js/idm.js: {}
+  dependencies:
+    - core/drupalSettings
