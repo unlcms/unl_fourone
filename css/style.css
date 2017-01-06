@@ -9,3 +9,6 @@
 #pagetitle h1:empty {
     display: none;
 }
+#toolbar-administration {
+    position: absolute;
+}
