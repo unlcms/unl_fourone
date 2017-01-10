@@ -1,34 +1,31 @@
 {% block messages %}
+{% if message_list %} {{ attach_library('unl_fourone/messages') }} {% endif %}
 {% for type, messages in message_list %}
   <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
     {% if type == 'error' %}
-      <div class="wdn_notice overlay-header negate">
+      <div class="wdn_notice negate">
     {% elseif type == 'status' %}
-      <div class="wdn_notice overlay-header affirm">
+      <div class="wdn_notice affirm">
     {% elseif type == 'warning' %}
-      <div class="wdn_notice overlay-header alert">
+      <div class="wdn_notice alert">
     {% else %}
-      <div class="wdn_notice overlay-header">
+      <div class="wdn_notice">
       {% endif %}
-      <div class="close">
-        <a href="#" title="Close this notice">Close this notice</a>
-      </div>
       <div class="message">
         {% if status_headings[type] %}
-          <h4>{{ status_headings[type] }}</h4>
+          <p class="title">{{ status_headings[type] }}</p>
         {% endif %}
         {% if messages|length > 1 %}
           <ul>
             {% for message in messages %}
-              <li>{{ message }}</li>
+              <li><p>{{ message }}</p></li>
             {% endfor %}
           </ul>
         {% else %}
-          {{ messages|first }}
+          <p>{{ messages|first }}</p>
         {% endif %}
       </div>
     </div>
   </div>
-<script>WDN.initializePlugin('notice');</script>
 {% endfor %}
 {% endblock messages %}
