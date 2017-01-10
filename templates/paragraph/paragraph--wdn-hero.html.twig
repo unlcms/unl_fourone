@@ -8,12 +8,8 @@
       {{ content.field_hero_link }}
     </div>
   </div>
-  {% if content.field_hero_video.value %}
-  <div class="wdn-hero-video">
-    <video autoplay="" loop="" poster="samplecontent/2015-first-fb-game-wooooo.jpg">
-      <source src="{{ content.field_hero_video }}">
-    </video>
-  </div>
+  {% if content.field_hero_video %}
+  {{ content.field_hero_video }}
   {% endif %}
   <div class="wdn-hero-picture">
     {{ content.field_hero_picture }}
