@@ -12,6 +12,7 @@ libraries-override:
   core/classList: false
   core/html5shiv: false
   core/normalize: false
+  core/modernizr: false
 
 regions:
   page_top: Page top
