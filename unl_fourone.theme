@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\group\Entity\GroupContent;
+
 /**
  * Implements template_preprocess_html().
  */
@@ -56,6 +58,7 @@ function unl_fourone_preprocess_html(&$variables) {
 
 function unl_fourone_preprocess_page(&$variables) {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
+
 }
 
 /**
@@ -98,7 +101,7 @@ function unl_fourone_preprocess_block(&$variables) {
     $group = unl_fourone_get_current_group();
     if ($group) {
       $variables['#cache']['contexts'][] = 'og_group_context';
-      $variables['site_name'] = $group->title->value;
+      $variables['site_name'] = $group->label();
       // @todo: this should probably come from a group field
       $variables['site_slogan'] = '';
     }
@@ -161,12 +164,26 @@ function unl_fourone_preprocess_webform_composite_address(&$variables) {
  */
 function unl_fourone_get_current_group() {
   $moduleHandler = \Drupal::service('module_handler');
-  if (!$moduleHandler->moduleExists('og')) {
+  if (!$moduleHandler->moduleExists('group')) {
     return NULL;
   }
 
-  $ogContext = \Drupal::service('og.context');
-  return $ogContext->getGroup();
+  // If we're on a Group entity page.
+  $group_route_context = \Drupal::service('group.group_route_context');
+  $contexts = $group_route_context->getRuntimeContexts(['group']);
+  $group = $contexts['group']->getContextValue();
+
+
+  // If we're on a Node entity page.
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node) {
+    $group_content_array = GroupContent::loadByEntity($node);
+    foreach ($group_content_array as $group_content) {
+      $group = $group_content->getGroup();
+    }
+  }
+
+  return $group;
 }
 
 /**
