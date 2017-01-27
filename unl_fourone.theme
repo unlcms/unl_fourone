@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\group\Entity\GroupContent;
+
 /**
  * Implements template_preprocess_html().
  */
@@ -11,7 +13,11 @@ function unl_fourone_preprocess_html(&$variables) {
     if (unl_fourone_is_request_group_front()) {
       unset($variables['head_title']['title']);
     }
-    $variables['head_title']['name'] = $group->title->value;
+    else {
+      $variables['head_title_array'] = array_slice($variables['head_title_array'], 0, 1, true) +
+                                       array('Group' => $group->label()) +
+                                       array_slice($variables['head_title_array'], 1, NULL, true);
+    }
   }
 
   // Set the <title> tag to UNL format: Page Title | Site Name | University of Nebraska–Lincoln
@@ -97,8 +103,8 @@ function unl_fourone_preprocess_block(&$variables) {
   if ($variables['base_plugin_id'] == 'system_branding_block') {
     $group = unl_fourone_get_current_group();
     if ($group) {
-      $variables['#cache']['contexts'][] = 'og_group_context';
-      $variables['site_name'] = $group->title->value;
+      $variables['#cache']['contexts'][] = 'group';
+      $variables['site_name'] = $group->label();
       // @todo: this should probably come from a group field
       $variables['site_slogan'] = '';
     }
@@ -121,7 +127,7 @@ function unl_fourone_preprocess_breadcrumb(&$variables) {
     // @todo: There should probably be a way to inject "intermediate" crumbs
 
     $variables['breadcrumb'][1] = [
-      'text' => $group->title->value,
+      'text' => $group->label(),
       'url' => $group->toUrl()->toString(),
     ];
 
@@ -155,31 +161,42 @@ function unl_fourone_preprocess_webform_composite_address(&$variables) {
 }
 
 /**
- * Safely get the og.context, if og is enabled
+ * Get the current Group.
  *
- * @return Drupal\og\OgContextInterface
+ * @return Drupal\group\Entity\Group
  */
 function unl_fourone_get_current_group() {
   $moduleHandler = \Drupal::service('module_handler');
-  if (!$moduleHandler->moduleExists('og')) {
+  if (!$moduleHandler->moduleExists('group')) {
     return NULL;
   }
 
-  $ogContext = \Drupal::service('og.context');
-  return $ogContext->getGroup();
+  // If we're on a Group entity page.
+  $group_route_context = \Drupal::service('group.group_route_context');
+  $contexts = $group_route_context->getRuntimeContexts(['group']);
+  $group = $contexts['group']->getContextValue();
+
+  // If we're on a Node entity page.
+  $node = \Drupal::request()->attributes->get('node');
+  if ($node) {
+    $group_content_array = GroupContent::loadByEntity($node);
+    foreach ($group_content_array as $group_content) {
+      $group = $group_content->getGroup();
+    }
+  }
+
+  return $group;
 }
 
 /**
- * Returns if the current requested node is also the og.context
- * (group front)
+ * Returns if the requested page is a Group entity and thus the front page of the group.
+ *
  * @return bool
  */
 function unl_fourone_is_request_group_front() {
-  $group = unl_fourone_get_current_group();
-  $node = \Drupal::request()->attributes->get('node');
-  if ($group && $node && $group->nid->value == $node->nid->value) {
-    return TRUE;
-  }
+  $group_route_context = \Drupal::service('group.group_route_context');
+  $contexts = $group_route_context->getRuntimeContexts(['group']);
+  $group = $contexts['group']->getContextValue();
 
-  return FALSE;
+  return $group ? TRUE : FALSE;
 }
