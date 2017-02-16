@@ -86,6 +86,20 @@ function unl_fourone_js_alter(&$js, \Drupal\Core\Asset\AttachedAssetsInterface $
 }
 
 /**
+ * Implements template_preprocess_region().
+ */
+function unl_fourone_preprocess_region(&$variables) {
+  // Add the Main Menu block for possible output in
+  // region--navlinks.html.twig if a Group Menu does not exist.
+  if ($variables['region'] == 'navlinks' && \Drupal::service('module_handler')->moduleExists('group_menu_block')) {
+    $block = \Drupal\block\Entity\Block::load('unl_fourone_main_menu');
+    $variables['block_main_menu'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block);
+  }
+}
+
+/**
  * Implements template_preprocess_block().
  */
 function unl_fourone_preprocess_block(&$variables) {
