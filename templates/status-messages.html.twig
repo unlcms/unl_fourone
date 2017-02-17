@@ -3,14 +3,17 @@
 {% for type, messages in message_list %}
   <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
     {% if type == 'error' %}
-      <div class="wdn_notice negate">
+      <div class="wdn_notice overlay-header negate">
     {% elseif type == 'status' %}
-      <div class="wdn_notice affirm">
+      <div class="wdn_notice overlay-header affirm">
     {% elseif type == 'warning' %}
-      <div class="wdn_notice alert">
+      <div class="wdn_notice overlay-header alert">
     {% else %}
-      <div class="wdn_notice">
+      <div class="wdn_notice overlay-header">
       {% endif %}
+      <div class="close">
+        <a href="#" title="Close this notice">Close this notice</a>
+      </div>
       <div class="message">
         {% if status_headings[type] %}
           <p class="title">{{ status_headings[type] }}</p>
