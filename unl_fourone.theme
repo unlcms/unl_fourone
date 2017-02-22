@@ -60,8 +60,17 @@ function unl_fourone_preprocess_html(&$variables) {
   );
 }
 
+/**
+ * Implements template_preprocess_page().
+ */
 function unl_fourone_preprocess_page(&$variables) {
-  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $group = unl_fourone_get_current_group();
+  if ($group) {
+    $variables['site_name'] = $group->label();
+  }
+  else {
+    $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  }
 }
 
 /**
