@@ -132,7 +132,13 @@ function unl_fourone_preprocess_block(&$variables) {
     }
   }
 
-  $variables['#cache']['contexts'][] = 'url.path';
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('group_subdomain')) {
+    $variables['#cache']['contexts'][] = 'url';
+  }
+  else {
+    $variables['#cache']['contexts'][] = 'url.path';
+  }
 }
 
 /**
