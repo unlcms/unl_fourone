@@ -9,6 +9,11 @@
 #pagetitle h1:empty {
     display: none;
 }
+
+body.path-group #pagetitle {
+    display: none;
+}
+
 #toolbar-administration {
     position: absolute;
 }
