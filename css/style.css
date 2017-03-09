@@ -10,6 +10,12 @@
     display: none;
 }
 
-#toolbar-administration {
-    position: absolute;
+/**
+ * Fixes admin toolbar positioning during js load (fixes page width)
+ * caused by #wdn_wrapper {overflow:hidden}
+ */
+#toolbar-bar::after {
+    clear: left;
+    content: ' ';
+    display: block;
 }
