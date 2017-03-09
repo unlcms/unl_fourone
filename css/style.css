@@ -10,10 +10,6 @@
     display: none;
 }
 
-body.path-group #pagetitle {
-    display: none;
-}
-
 #toolbar-administration {
     position: absolute;
 }
