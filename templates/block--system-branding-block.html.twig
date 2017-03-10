@@ -1,7 +1,7 @@
 {% extends "block.html.twig" %}
 {% block content %}
   {% if site_slogan %}
-    <span id="wdn_site_affiliation">{{ site_slogan }}</span>
+    <span id="wdn_site_affiliation">{{ site_slogan|raw }}</span>
   {% else %}
     <span id="wdn_site_affiliation"></span>
   {% endif %}

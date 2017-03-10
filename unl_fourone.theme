@@ -127,8 +127,9 @@ function unl_fourone_preprocess_block(&$variables) {
     $group = unl_fourone_get_current_group();
     if ($group) {
       $variables['site_name'] = $group->label();
-      // @todo: this should probably come from a group field
-      $variables['site_slogan'] = '';
+      if ($site_affiliation = $group->get('field_site_affiliation')) {
+        $variables['site_slogan'] = $site_affiliation->value;
+      }
     }
   }
 
