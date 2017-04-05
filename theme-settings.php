@@ -154,6 +154,13 @@ function unl_fourone_form_system_theme_settings_alter(&$form, &$form_state) {
       '#description' => t('Adds text to the header and footer that designates the site as belonging to a Registered Student Organization.'),
       '#access' => !!count(array_intersect(array('administrator'), array_values($GLOBALS['user']->roles))),
     ),
+    'unl_speedy' => array(
+      '#type' => 'checkbox',
+      '#title' => t('Speedy template'),
+      '#default_value' => theme_get_setting('unl_speedy'),
+      '#description' => t('Use the Speedy version of the Fixed template.'),
+      '#access' => !!count(array_intersect(array('administrator'), array_values($GLOBALS['user']->roles))),
+    ),
   );
   $form['#submit'][] = 'unl_fourone_form_system_theme_settings_submit';
   _unl_fourone_attach_syntax_highlighting($form['unl_head']);

@@ -239,6 +239,11 @@ function unl_fourone_process_html(&$vars) {
   if (theme_get_setting('unl_affiliate') && module_exists('color')) {
     _color_html_alter($vars);
   }
+
+  // Template suggestion for the Speedy template.
+  if (theme_get_setting('unl_speedy')) {
+    $vars['theme_hook_suggestions'][] = 'html__speedy';
+  }
 }
 
 /**
