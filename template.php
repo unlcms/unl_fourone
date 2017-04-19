@@ -94,6 +94,9 @@ function _unl_fourone_limit_menu_depth($menu_links, $depth) {
  * Implementation of hook_html_head_alter().
  */
 function unl_fourone_html_head_alter(&$head_elements) {
+  // Remove due to w3c error: <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  unset($head_elements['system_meta_content_type']);
+
   $home_path = '<front>';
 
   // If <link rel="home"> has already been set elsewhere (in a Context for example) then return...
@@ -121,9 +124,6 @@ function unl_fourone_html_head_alter(&$head_elements) {
     '#type' => 'html_tag'
   );
   $head_elements['drupal_add_html_head_link:home'] = $element;
-
-  // Remove due to w3c error: <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  unset($head_elements['system_meta_content_type']);
 }
 
 /**
