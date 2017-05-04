@@ -10,7 +10,7 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
 
         $Id: speedy.dwt | 6edb0e1ee94038935f3821c6ce15dfd5c217b2e2 | Tue Dec 1 17:08:56 2015 -0600 | Kevin Abel  $
     -->
-  <?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/scriptsandstyles_speedy.shtml"); ?>
+  <?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/scriptsandstyles_speedy.html"); ?>
     <!-- InstanceBeginEditable name="doctitle" -->
     <title><?php print $head_title; ?></title>
     <!-- InstanceEndEditable -->
