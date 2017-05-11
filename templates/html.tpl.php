@@ -37,7 +37,6 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
 <?php if ($format !== 'partial') : ?>
 <?php print $page_bottom; ?>
 <?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/body_scripts.html"); ?>
-<?php print $body_scripts; ?>
 </body>
 <!-- InstanceEnd --></html>
 <?php endif; ?>

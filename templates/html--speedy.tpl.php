@@ -17,7 +17,6 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
     <!-- InstanceBeginEditable name="head" -->
   <?php print $head; ?>
   <?php print $styles; ?>
-  <?php print $scripts; ?>
   <?php print theme_get_setting('head_html'); ?>
     <!-- InstanceEndEditable -->
     <!-- InstanceParam name="class" type="text" value="" -->
@@ -28,10 +27,10 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
 <?php endif; ?>
 <?php print $page; ?>
 <?php if ($format !== 'partial') : ?>
-<?php print $page_bottom; ?>
 <?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/speedy_body_scripts.html"); ?>
 <!-- InstanceBeginEditable name="bodyscripts" -->
-<?php print $body_scripts; ?>
+<?php print $scripts; ?>
+<?php print $page_bottom; ?>
 <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
