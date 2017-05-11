@@ -187,9 +187,13 @@ function unl_fourone_preprocess_html(&$vars, $hook) {
   // Add the CSS and JS files that are generated from the unl_fourone appearance settings page
   foreach (array('css', 'js') as $type) {
     $file = variable_get('unl_custom_code_path', 'public://custom') . '/custom_unl_fourone.' . $type;
-    if (is_file($file)) {
+    if (is_file($file) && ($type == 'css' || !theme_get_setting('unl_speedy'))) {
       $func = 'drupal_add_'.$type;
       $func($file, array('type' => 'file', 'group' => ($type=='css'?CSS_THEME:JS_THEME), 'every_page' => TRUE));
+    }
+    else {
+      // Add the JS to body_scripts if Speedy is enabled.
+      drupal_add_js($file, array('scope' => 'body_scripts', 'type' => 'file', 'group' => JS_THEME, 'every_page' => TRUE));
     }
   }
 
@@ -244,6 +248,9 @@ function unl_fourone_process_html(&$vars) {
   if (theme_get_setting('unl_speedy')) {
     $vars['theme_hook_suggestions'][] = 'html__speedy';
   }
+
+  // Create a body_scripts variable so JS can be put at the bottom of the document.
+  $vars['body_scripts'] = drupal_get_js('body_scripts');
 }
 
 /**
@@ -350,7 +357,7 @@ function unl_fourone_preprocess_page(&$vars, $hook) {
   // Add js to modify the My.UNL login links.
   $loginUrl = url('user', array('query' => drupal_get_destination()));
   $script = "require(['idm'], function(idm) {idm.setLoginURL('" . $loginUrl . "'); idm.setLogoutURL('user/logout');});" . PHP_EOL;
-  drupal_add_js($script, 'inline');
+  drupal_add_js($script, array('type' => 'inline', 'scope' => 'body_scripts'));
 
   // Unset the sidebars if on a user page (i.e. user profile or imce file browser)
   if (arg(0) == 'user') {
@@ -538,7 +545,7 @@ function unl_fourone_menu_local_task($variables) {
 function unl_fourone_pager($variables) {
   // This is straight-copied from the default except with css class names changed and wdn css loaded
   // http://api.drupal.org/api/drupal/includes--pager.inc/function/theme_pager/7
-  drupal_add_js("WDN.loadCSS(WDN.getTemplateFilePath('css/modules/pagination.css'));", 'inline');
+  drupal_add_js("WDN.loadCSS(WDN.getTemplateFilePath('css/modules/pagination.css'));", array('type' => 'inline', 'scope' => 'body_scripts'));
 
   $tags = $variables['tags'];
   $element = $variables['element'];

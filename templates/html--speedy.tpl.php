@@ -31,6 +31,7 @@ if ($format !== 'partial') : ?><!DOCTYPE html>
 <?php print $page_bottom; ?>
 <?php require(DRUPAL_ROOT."/wdn/templates_4.1/includes/speedy_body_scripts.html"); ?>
 <!-- InstanceBeginEditable name="bodyscripts" -->
+<?php print $body_scripts; ?>
 <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
