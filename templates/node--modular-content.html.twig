@@ -13,7 +13,7 @@
 <article{% if page %}{{ attributes.addClass('wdn-band').addClass(classes) }}{% else %}{{ attributes.addClass(classes) }}{% endif %}>
 
   {{ title_prefix }}
-  {% if not page %}
+  {% if not page and view_mode != "full" %}
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
