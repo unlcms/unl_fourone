@@ -10,7 +10,16 @@
   ]
 %}
 {{ attach_library('classy/node') }}
+{{ attach_library('unl_fourone/person') }}
 <article{{ attributes.addClass(classes) }}>
+
+
+  Test breaking them out:
+  --<br>
+  {{ node.field_my_unl_id.entity.title.value  }}<br>
+  {{ node.field_my_unl_id.entity.field_knowledge_courses.value  }}<br>
+  --
+
 
   {{ title_prefix }}
   {% if not page and view_mode != "full" %}

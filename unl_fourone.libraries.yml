@@ -28,3 +28,9 @@ idm:
     js/idm.js: {}
   dependencies:
     - core/drupalSettings
+
+person:
+  version: VERSION
+  css:
+    theme:
+      css/theme/person.css: {}
