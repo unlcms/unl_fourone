@@ -10,6 +10,11 @@
     display: none;
 }
 
+/* Removes extra margin-top due to div+h1 rules if the h1 is wrapped, such as when editor is logged in */
+#pagetitle h1 {
+    margin-top: 1em;
+}
+
 /**
  * Fixes admin toolbar positioning during js load (fixes page width)
  * caused by #wdn_wrapper {overflow:hidden}
