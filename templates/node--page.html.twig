@@ -10,7 +10,7 @@
   ]
 %}
 {{ attach_library('classy/node') }}
-<article{% if page %}{{ attributes.addClass(classes) }}{% else %}{{ attributes.addClass(classes) }}{% endif %}>
+<article{% if page %}{{ attributes.addClass('wdn-band').addClass(classes) }}{% else %}{{ attributes.addClass(classes) }}{% endif %}>
 
   {{ title_prefix }}
   {% if not page and view_mode != "full" %}
@@ -30,10 +30,13 @@
     </footer>
   {% endif %}
 
-  <div class="wdn-grid-set"{{ content_attributes }}>
-    <div class="wdn-col-full bp960-wdn-col-four-fifths bp1280-wdn-col-three-fourths bp1600-wdn-col-two-thirds">
-      {{ content }}
+  {% if page %}<div class="wdn-inner-wrapper wdn-inner-padding-no-top">{% endif %}
+    <div class="wdn-grid-set"{{ content_attributes }}>
+      <div class="wdn-col-full bp960-wdn-col-four-fifths bp1280-wdn-col-three-fourths bp1600-wdn-col-two-thirds">
+        {{ content.body }}
+      </div>
     </div>
-  </div>
+  {% if page %}</div>{% endif %}
 
+  {{ content.field_bands }}
 </article>
