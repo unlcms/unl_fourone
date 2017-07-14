@@ -30,13 +30,15 @@
     </footer>
   {% endif %}
 
-  {% if page %}<div class="wdn-inner-wrapper wdn-inner-padding-no-top">{% endif %}
-    <div class="wdn-grid-set"{{ content_attributes }}>
-      <div class="wdn-col-full bp960-wdn-col-four-fifths bp1280-wdn-col-three-fourths bp1600-wdn-col-two-thirds">
-        {{ content.body }}
+  {% if node.body.value %}
+    {% if page %}<div class="wdn-inner-wrapper wdn-inner-padding-no-top">{% endif %}
+      <div class="wdn-grid-set"{{ content_attributes }}>
+        <div class="wdn-col-full bp960-wdn-col-four-fifths bp1280-wdn-col-three-fourths bp1600-wdn-col-two-thirds">
+          {{ content.body }}
+        </div>
       </div>
-    </div>
-  {% if page %}</div>{% endif %}
+    {% if page %}</div>{% endif %}
+  {% endif %}
 
   {{ content.field_bands }}
 </article>
