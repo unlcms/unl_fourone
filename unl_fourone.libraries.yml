@@ -29,6 +29,12 @@ idm:
   dependencies:
     - core/drupalSettings
 
+funding:
+  version: VERSION
+  css:
+    theme:
+      css/theme/funding.css: {}
+
 person:
   version: VERSION
   css:
