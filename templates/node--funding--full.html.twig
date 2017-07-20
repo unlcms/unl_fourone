@@ -13,15 +13,6 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 {{ attach_library('classy/node') }}
 {{ attach_library('unl_fourone/funding') }}
 
-{%
-set full_description, funding_amount, funding_periods, application_due_date, contact_name, contact_phone_number, contact_email, eligibility, how_to_apply, templates, resources_documents, resources_external_links, apply_link, application_form, applicable_to =
-    content.field_funding_full_description, content.field_funding_amount, content.field_funding_periods, content.field_funding_app_due_date, content.field_funding_contact_name, content.field_funding_contact_phone, content.field_funding_contact_email, content.field_funding_eligibility, content.field_funding_how_to_apply, content.field_funding_templates, content.field_funding_resources_docs, content.field_funding_resources_links, content.field_funding_apply_link, content.field_funding_application_form, content.field_applicable_to
-%}
-{#to get striptags filter to work on date value#}
-{% set application_due_date_value %}
-    {{ content.field_funding_app_due_date }}
-{% endset %}
-
 <article{{ attributes.addClass(classes) }}>
 
     {{ title_prefix }}
@@ -47,12 +38,12 @@ set full_description, funding_amount, funding_periods, application_due_date, con
             {# taxonomy section that is visible in mobile #}
             <section class="funding-ct--taxonomy-tags-section--mobile">
                 {% if node.field_applicable_to.value %}
-                    <span class="wdn-text-hidden">{{ applicable_to['#title'] }}</span>
+                    <span class="wdn-text-hidden">{{ content.field_applicable_to['#title'] }}</span>
                     <ul class="funding-ct--taxonomy-tags">
-                        {% for i, value in applicable_to['#items'] %}
-                            {% set tag_value = applicable_to[i]['#title']|split(':')%}
+                        {% for i, value in content.field_applicable_to['#items'] %}
+                            {% set tag_value = content.field_applicable_to[i]['#title']|split(':')%}
                             {% set tag_value_last_index = (tag_value|length - 1) %}
-                            <li><a class="wdn-sans-serif" href="{{ applicable_to[i]['#url'] }}">{{ tag_value[tag_value_last_index] }}</a></li>
+                            <li><a class="wdn-sans-serif" href="{{ content.field_applicable_to[i]['#url'] }}">{{ tag_value[tag_value_last_index] }}</a></li>
                         {% endfor %}
                     </ul>
                 {% endif %}
@@ -65,7 +56,7 @@ set full_description, funding_amount, funding_periods, application_due_date, con
             <section class="funding-ct--summary-section">
                 <h2 class="funding-ct--summary-section--title wdn-brand clear-top">Funding Overview</h2>
 
-                <span class="funding-ct--summary-section--label wdn-sans-serif">{{ funding_amount['#title'] }}:</span>
+                <span class="funding-ct--summary-section--label wdn-sans-serif">{{ content.field_funding_amount['#title'] }}:</span>
                 <ul class="funding-ct--summary-section--list">
                     {% for i, value in node.field_funding_amount %}
                         <li>{{ node.field_funding_amount[i].value }}</li>
@@ -74,28 +65,34 @@ set full_description, funding_amount, funding_periods, application_due_date, con
 
                 {# if funding period information is present, print it out #}
                 {% if node.field_funding_periods.value  %}
-                    <span class="funding-ct--summary-section--label wdn-sans-serif">{{ funding_periods['#title']}}:</span>
+                    <span class="funding-ct--summary-section--label wdn-sans-serif">{{ content.field_funding_periods['#title']}}:</span>
                     <ul class="funding-ct--summary-section--list">
-                        {% for i, value in funding_periods['#items'] %}
-                            <li>{{ funding_periods[i].start_date }} {{ funding_periods[i].separator }} {{ funding_periods[i].end_date }}</li>
+                        {% for i, value in content.field_funding_periods['#items'] %}
+                            <li>{{ content.field_funding_periods[i].start_date }} {{ content.field_funding_periods[i].separator }} {{ content.field_funding_periods[i].end_date }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}
 
-                <span class="funding-ct--summary-section--label wdn-sans-serif">{{ application_due_date['#title']}}:</span>
+                {#to get striptags filter to work on date value#}
+                {% set application_due_date_value %}
+                    {{ content.field_funding_app_due_date }}
+                {% endset %}
+
+                <span class="funding-ct--summary-section--label wdn-sans-serif">{{ content.field_funding_app_due_date['#title']}}:</span>
                 {{ application_due_date_value|striptags('<time>')|raw }}
+
 
                 {# if contact information is present, print it out #}
                 {% if node.field_funding_contact_email.value or node.field_funding_contact_phone.value %}
                     <h3 class="funding-ct--summary-section--contact-info-title">Contact Information</h3>
                     {% if node.field_funding_contact_name.value %}
-                        {{ contact_name }}
+                        {{ content.field_funding_contact_name }}
                     {% endif %}
                     {% if node.field_funding_contact_phone.value %}
-                        {{ contact_phone_number }}
+                        {{ content.field_funding_contact_phone }}
                     {% endif %}
                     {% if node.field_funding_contact_email.value %}
-                        {{ contact_email }}
+                        {{ content.field_funding_contact_email }}
                     {% endif %}
                 {% endif %}
             </section>
@@ -105,11 +102,11 @@ set full_description, funding_amount, funding_periods, application_due_date, con
                 <section class="funding-ct--apply-section">
                     {% if node.field_funding_apply_link.value %}
                         {% if node.field_funding_apply_cta.value is empty %}
-                            <a class="wdn-button wdn-button-brand funding-ct--apply-button" href="{{apply_link.0['#url']}}">Apply Now</a>
+                            <a class="wdn-button wdn-button-brand funding-ct--apply-button" href="{{content.field_funding_apply_link.0['#url']}}">Apply Now</a>
                         {% elseif  node.field_funding_apply_cta.value != "Apply Now" %}
-                            <a class="wdn-button wdn-button-brand funding-ct--apply-button" href="{{apply_link.0['#url']}}">{{ node.field_funding_apply_cta.value }}</a>
+                            <a class="wdn-button wdn-button-brand funding-ct--apply-button" href="{{content.field_funding_apply_link.0['#url']}}">{{ node.field_funding_apply_cta.value }}</a>
                         {% else %}
-                            <a class="wdn-button wdn-button-brand funding-ct--apply-button" href="{{apply_link.0['#url']}}">Apply Now</a>
+                            <a class="wdn-button wdn-button-brand funding-ct--apply-button" href="{{content.field_funding_apply_link.0['#url']}}">Apply Now</a>
                         {% endif %}
                     {% elseif node.field_funding_application_form.value %}
                         {% if node.field_funding_apply_cta.value is empty %}
@@ -128,8 +125,8 @@ set full_description, funding_amount, funding_periods, application_due_date, con
                 <section class="funding-ct--templates-section">
                     <h2 class="funding-ct--summary-section--title wdn-brand clear-top">Templates</h2>
                     <ul class="funding-ct--summary-section--list">
-                        {% for i, value in templates['#items'] %}
-                            <li>{{ templates[i] }}</li>
+                        {% for i, value in content.field_funding_templates['#items'] %}
+                            <li>{{ content.field_funding_templates[i] }}</li>
                         {% endfor %}
                     </ul>
                 </section>
@@ -142,16 +139,16 @@ set full_description, funding_amount, funding_periods, application_due_date, con
                     {% if node.field_funding_resources_docs.value %}
                         <span class="funding-ct--summary-section--label wdn-sans-serif">Documents:</span>
                         <ul class="funding-ct--summary-section--list">
-                            {% for i, value in resources_documents['#items'] %}
-                                <li>{{ resources_documents[i] }}</li>
+                            {% for i, value in content.field_funding_resources_docs['#items'] %}
+                                <li>{{ content.field_funding_resources_docs[i] }}</li>
                             {% endfor %}
                         </ul>
                     {% endif %}
                     {% if node.field_funding_resources_links %}
                         <span class="funding-ct--summary-section--label wdn-sans-serif">Links:</span>
                         <ul class="funding-ct--summary-section--list">
-                            {% for i, value in resources_external_links['#items'] %}
-                                <li>{{ resources_external_links[i] }}</li>
+                            {% for i, value in content.field_funding_resources_links['#items'] %}
+                                <li>{{ content.field_funding_resources_links[i] }}</li>
                             {% endfor %}
                         </ul>
                     {% endif %}
@@ -163,19 +160,19 @@ set full_description, funding_amount, funding_periods, application_due_date, con
             {# taxonomy section that is visible on desktop #}
             <section class="funding-ct--taxonomy-tags-section--desktop">
                 {% if node.field_applicable_to.value %}
-                    <span class="wdn-text-hidden">{{ applicable_to['#title'] }}</span>
+                    <span class="wdn-text-hidden">{{ content.field_applicable_to['#title'] }}</span>
                     <ul class="funding-ct--taxonomy-tags">
-                        {% for i, value in applicable_to['#items'] %}
-                            {% set tag_value = applicable_to[i]['#title']|split(':')%}
+                        {% for i, value in content.field_applicable_to['#items'] %}
+                            {% set tag_value = content.field_applicable_to[i]['#title']|split(':')%}
                             {% set tag_value_last_index = (tag_value|length - 1) %}
-                            <li><a class="wdn-sans-serif" href="{{ applicable_to[i]['#url'] }}">{{ tag_value[tag_value_last_index] }}</a></li>
+                            <li><a class="wdn-sans-serif" href="{{ content.field_applicable_to[i]['#url'] }}">{{ tag_value[tag_value_last_index] }}</a></li>
                         {% endfor %}
                     </ul>
                 {% endif %}
             </section>
-            <section class="funding--full-description">
+            <section class="funding-ct--full-description">
                 <a id="full-description" class="anchor"></a>
-                {{ full_description }}
+                {{ content.field_funding_full_description }}
             </section>
             <div id="tabs">
                 <ul>
@@ -187,12 +184,12 @@ set full_description, funding_amount, funding_periods, application_due_date, con
                 {% if node.field_funding_eligibility.value %}
                     <div id="eligibility-tab">
                         <h2>Eligibility</h2>
-                        {{ eligibility }}
+                        {{ content.field_funding_eligibility }}
                     </div>
                 {% endif %}
                 <div id="how-to-apply-tab">
                     <h2>How to Apply</h2>
-                    {{ how_to_apply }}
+                    {{ content.field_funding_how_to_apply }}
                 </div>
             </div>
         </div>
@@ -202,10 +199,8 @@ set full_description, funding_amount, funding_periods, application_due_date, con
 
 {#script for JQuery UI tabs#}
 <script>
-    //<![CDATA[
     WDN.initializePlugin('jqueryui', [function () {
         var $ = require('jquery');
         $('#tabs').tabs();
     }]);
-    //]]>
 </script>

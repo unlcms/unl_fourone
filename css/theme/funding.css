@@ -84,7 +84,7 @@
 
 .funding-ct--summary-section--teaser-summary {
     margin-top: 1.5625em;
-    margin-bottom: 1em;
+    margin-bottom: 1.25em;
 }
 
 .funding-ct--summary-section--label {
@@ -102,6 +102,11 @@
 
 .funding-ct--summary-section--list {
     margin-top: 0.25em;
+}
+
+.funding-ct--full-description {
+    margin-top: 1.5625em;
+    margin-bottom: 1.25em;
 }
 
 @media (min-width: 48em) {
