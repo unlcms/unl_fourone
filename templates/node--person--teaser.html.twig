@@ -49,11 +49,11 @@
               {% else %}
                 <span class="value">
                   <a href="tel:{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':''})  }}">
-                    <span itemprop="telephone">{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':'-'})  }}</span>
+                    <span itemprop="telephone">{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402472':'402-472-'})  }}</span>
                   </a>
                 </span>
-                {% if node.field_my_unl_id.entity.field_telephonenumber.value|slice(0,7) == '402 472' %}
-                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402 472':'2-'}) }}</abbr>
+                {% if node.field_my_unl_id.entity.field_telephonenumber.value|slice(0,6) == '402472' %}
+                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402472':'402-472-'}) }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402472':'2-'}) }}</abbr>
                 {% endif %}
               {% endif %}
             </div>

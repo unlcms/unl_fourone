@@ -107,21 +107,23 @@
                 </div>
                 <div class="tel work icon-phone attribute">
                   <span class="type">Work</span>
-                    {% if node.field_person_phone.value %}
-                      <span class="value"><a href="tel:{{ node.field_person_phone.value|replace({'-':''}) }}">
-                      <span itemprop="telephone">{{ node.field_person_phone.value }}</span>
-                       </a>
-                  </span>
+                  {% if node.field_person_phone.value %}
+                    <span class="value">
+                      <a href="tel:{{ node.field_person_phone.value|replace({'-':''}) }}">
+                        <span itemprop="telephone">{{ node.field_person_phone.value }}</span>
+                      </a>
+                    </span>
                     {% if node.field_person_phone.value|slice(0,7) == '402-472' %}
                       <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_person_phone.value }}">On-campus {{ node.field_person_phone.value|replace({'402-472-':'2-'}) }}</abbr>
                     {% endif %}
                   {% else %}
-                  <span class="value"><a href="tel:{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':''}) }}">
-                  <span itemprop="telephone">{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':'-'}) }}</span>
-                    </a>
-                  </span>
-                    {% if node.field_my_unl_id.entity.field_telephonenumber.value|slice(0,7) == '402 472' %}
-                      <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402 472':'2-'}) }}</abbr>
+                    <span class="value">
+                      <a href="tel:{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':''})  }}">
+                        <span itemprop="telephone">{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402472':'402-472-'})  }}</span>
+                      </a>
+                    </span>
+                    {% if node.field_my_unl_id.entity.field_telephonenumber.value|slice(0,6) == '402472' %}
+                      <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402472':'402-472-'}) }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402472':'2-'}) }}</abbr>
                     {% endif %}
                   {% endif %}
                 </div>
@@ -129,7 +131,7 @@
                     {% if node.field_person_email.value %}
                       <a class="email" href="mailto:{{ content.field_person_email }}" itemprop="email">{{ content.field_person_email }}</a>
                     {%  else %}
-                     <a class="email" href="mailto:{{ node.field_my_unl_id.entity.field_mail.value  }}" itemprop="email">{{ node.field_my_unl_id.entity.field_mail.value }}</a>
+                     <a class="email" href="mailto:{{ node.field_my_unl_id.entity.field_mail.value }}" itemprop="email">{{ node.field_my_unl_id.entity.field_mail.value }}</a>
                     {% endif %}
                 </div>
               </div>
@@ -143,7 +145,7 @@
                     {% if node.body.value is not empty %}
                       {{ content.body }}
                     {%  else %}
-                      {{ node.field_my_unl_id.entity.field_knowledge_bio.value  }}
+                      {{ node.field_my_unl_id.entity.field_knowledge_bio.value }}
                     {% endif %}
                  </div>
                   {% endif %}
@@ -180,7 +182,7 @@
                   {% endif %}
                   {% if node.field_my_unl_id.entity.field_knowledge_performances.value %}
                 <div class="directory-knowledge-section directory-knowledge-section-performances">
-                  <h2 class="wdn-brand"><span class="icon-column" aria-hidden="true"></span><span class="wdn-text-hidden">icon-column</span>Artistic &amp; Professional Performances &amp; Exhibitions</h2>
+                  <h2 class="wdn-brand"><span class="icon-column" aria-hidden="true"></span><span class="wdn-text-hidden">icon-column</span>Artistic &amp;amp; Professional Performances &amp; Exhibitions</h2>
                   <ul class="directory-knowledge-section-inner">
                       {% for i, value in node.field_my_unl_id.entity.field_knowledge_performances %}
                         <li class="directory-knowledge-item">{{ node.field_my_unl_id.entity.field_knowledge_performances[i].value }}</li>
