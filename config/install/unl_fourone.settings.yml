@@ -2,9 +2,3 @@ features:
   logo: false
   slogan: true
   favicon: false
-grid_class_sidebar_first: 'bp768-wdn-col-one-fourth'
-grid_class_sidebar_second: 'bp768-wdn-col-one-fourth'
-grid_class_content_one_sidebar: 'bp768-wdn-col-three-fourths'
-grid_class_content_two_sidebars: 'bp768-wdn-col-two-fourths'
-wdn_beta: false
-unl_affiliate: false
