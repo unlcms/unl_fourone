@@ -169,20 +169,8 @@ function unl_fourone_preprocess_breadcrumb(&$variables) {
 }
 
 /**
- * Implements template_preprocess_field().
+ * Implements template_preprocess_webform_composite_address().
  */
-function unl_fourone_preprocess_field(&$variables) {
-  $element = $variables['element'];
-  if ($element['#field_name'] == 'field_hero_link') {
-    foreach ($variables['items'] as $key => $item) {
-      $variables['items'][$key]['content']['#options']['attributes']['class'] = array(
-        'wdn-button',
-        'wdn-button-outline'
-      );
-    }
-  }
-}
-
 function unl_fourone_preprocess_webform_composite_address(&$variables) {
   $containerKey = array_search('container', $variables['element']['#theme_wrappers']);
 
