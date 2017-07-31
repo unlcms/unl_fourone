@@ -44,7 +44,7 @@
                   </a>
                 </span>
                 {% if node.field_person_phone.value|slice(0,7) == '402-472' %}
-                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_person_phone.value  }}">On-campus {{ node.field_person_phone.value|replace({'402-472-':'2-'})  }}</abbr>
+                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_person_phone.value }}">On-campus {{ node.field_person_phone.value|replace({'402-472-':'2-'}) }}</abbr>
                 {% endif %}
               {% else %}
                 <span class="value">
@@ -53,7 +53,7 @@
                   </a>
                 </span>
                 {% if node.field_my_unl_id.entity.field_telephonenumber.value|slice(0,7) == '402 472' %}
-                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value  }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402 472':'2-'})  }}</abbr>
+                  <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402 472':'2-'}) }}</abbr>
                 {% endif %}
               {% endif %}
             </div>
@@ -61,7 +61,7 @@
                 {% if node.field_person_email.value %}
                   <a class="email" href="mailto:{{ content.field_person_email }}" itemprop="email">{{ content.field_person_email }}</a>
                 {%  else %}
-                 <a class="email" href="mailto:{{ node.field_my_unl_id.entity.field_mail.value }}" itemprop="email">{{ node.field_my_unl_id.entity.field_mail.value  }}</a>
+                 <a class="email" href="mailto:{{ node.field_my_unl_id.entity.field_mail.value }}" itemprop="email">{{ node.field_my_unl_id.entity.field_mail.value }}</a>
                 {% endif %}
             </div>
             {% if content.body or node.field_my_unl_id.entity.field_knowledge_bio.value %}

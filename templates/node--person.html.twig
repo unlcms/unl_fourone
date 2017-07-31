@@ -37,20 +37,20 @@
         <div class="wdn-grid-set knowledge-grid">
           <div class="bp2-wdn-col-two-sevenths directory-knowledge-summary">
             <div class="vcard faculty" data-uid="{{ node.field_my_unl_id.entity.uid.value  }}" data-preferred-name="{{ label }}" itemscope itemtype="http://schema.org/Person">
-              <a class="card-profile planetred_profile" href="https://planetred.unl.edu/pg/profile/{{ node.field_my_unl_id.entity.uid.value  }}" title="Planet Red profile for {{ label }}" itemprop="url">
+              <a class="card-profile planetred_profile" href="https://planetred.unl.edu/pg/profile/{{ node.field_my_unl_id.entity.uid.value }}" title="Planet Red profile for {{ label }}" itemprop="url">
                   {% if node.field_person_portrait.value %}
                     {{ content.field_person_portrait }}
                   {% else  %}
-                    <img class="photo profile_pic" itemprop="image" src="{{ node.field_my_unl_id.entity.field_imageurl.value  }}" alt="Avatar for {{ label }}" />
+                    <img class="photo profile_pic" itemprop="image" src="{{ node.field_my_unl_id.entity.field_imageurl.value }}" alt="Avatar for {{ label }}" />
                   {% endif %}
               </a>
               <div class="vcardInfo">
                 <h1 class="headline">
-                  <a class="permalink" href="{{ node.field_my_unl_id.entity.field_unldirectoryaddress.value  }}" itemprop="url">
+                  <a class="permalink" href="{{ node.field_my_unl_id.entity.field_unldirectoryaddress.value }}" itemprop="url">
                     <span class="fn" itemprop="name">{{ label }}</span>
                   </a>
                 </h1>
-                <div class="eppa">{{ node.field_my_unl_id.entity.field_edupersonprimaryaff.value  }}</div>
+                <div class="eppa">{{ node.field_my_unl_id.entity.field_edupersonprimaryaff.value }}</div>
                 <ul class="roles">
                   <li class="org parent-unl">
                     <span class="title" itemprop="jobTitle">
@@ -62,7 +62,7 @@
                         </span>
                     <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
                     <span class="organization-unit">
-                      <span itemprop="name">{{ node.field_my_unl_id.entity.field_unlhrprimarydepartment.value  }}</span>
+                      <span itemprop="name">{{ node.field_my_unl_id.entity.field_unlhrprimarydepartment.value }}</span>
                     </span>
                   </li>
                 </ul>
@@ -76,21 +76,20 @@
                     {% endif %}
                     {% if i == 1  %}
                   <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                  <span class="locality" itemprop="addressLocality">{{  node.field_person_address[i].value }}</span>
+                  <span class="locality" itemprop="addressLocality">{{ node.field_person_address[i].value }}</span>
                     {% endif %}
                     {% if i == 2  %}
-                      <abbr class="region" title="Nebraska" itemprop="addressRegion">{{  node.field_person_address[i].value }}</abbr>
+                      <abbr class="region" title="Nebraska" itemprop="addressRegion">{{ node.field_person_address[i].value }}</abbr>
                     {% endif %}
                     {% if i == 3  %}
-                      <span class="postal-code" itemprop="postalCode">{{  node.field_person_address[i].value }}</span>
+                      <span class="postal-code" itemprop="postalCode">{{ node.field_person_address[i].value }}</span>
                       </div>
                     {% endif %}
                     {% endfor %}
                     {% else  %}
                         {% for i, value in node.field_my_unl_id.entity.field_unldirectoryaddress %}
                             {% if i == 0 %}
-                              <span class="street-address">
-                        {{  node.field_my_unl_id.entity.field_unldirectoryaddress[i].value }}</span>
+                              <span class="street-address">{{ node.field_my_unl_id.entity.field_unldirectoryaddress[i].value }}</span>
                             {% endif %}
                             {% if i == 1  %}
                               <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -109,20 +108,20 @@
                 <div class="tel work icon-phone attribute">
                   <span class="type">Work</span>
                     {% if node.field_person_phone.value %}
-                      <span class="value"><a href="tel:{{ node.field_person_phone.value|replace({'-':''})  }}">
+                      <span class="value"><a href="tel:{{ node.field_person_phone.value|replace({'-':''}) }}">
                       <span itemprop="telephone">{{ node.field_person_phone.value }}</span>
                        </a>
                   </span>
                     {% if node.field_person_phone.value|slice(0,7) == '402-472' %}
-                      <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_person_phone.value  }}">On-campus {{ node.field_person_phone.value|replace({'402-472-':'2-'})  }}</abbr>
+                      <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_person_phone.value }}">On-campus {{ node.field_person_phone.value|replace({'402-472-':'2-'}) }}</abbr>
                     {% endif %}
                   {% else %}
-                  <span class="value"><a href="tel:{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':''})  }}">
-                  <span itemprop="telephone">{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':'-'})  }}</span>
+                  <span class="value"><a href="tel:{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':''}) }}">
+                  <span itemprop="telephone">{{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({' ':'-'}) }}</span>
                     </a>
                   </span>
                     {% if node.field_my_unl_id.entity.field_telephonenumber.value|slice(0,7) == '402 472' %}
-                      <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value  }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402 472':'2-'})  }}</abbr>
+                      <abbr class="on-campus-dialing" title="For on-campus dialing only. Off-campus, dial {{ node.field_my_unl_id.entity.field_telephonenumber.value }}">On-campus {{ node.field_my_unl_id.entity.field_telephonenumber.value|replace({'402 472':'2-'}) }}</abbr>
                     {% endif %}
                   {% endif %}
                 </div>
@@ -130,7 +129,7 @@
                     {% if node.field_person_email.value %}
                       <a class="email" href="mailto:{{ content.field_person_email }}" itemprop="email">{{ content.field_person_email }}</a>
                     {%  else %}
-                     <a class="email" href="mailto:{{ node.field_my_unl_id.entity.field_mail.value  }}" itemprop="email">{{ node.field_my_unl_id.entity.field_mail.value  }}</a>
+                     <a class="email" href="mailto:{{ node.field_my_unl_id.entity.field_mail.value  }}" itemprop="email">{{ node.field_my_unl_id.entity.field_mail.value }}</a>
                     {% endif %}
                 </div>
               </div>
@@ -197,7 +196,6 @@
                         <li class="directory-knowledge-item">{{ node.field_my_unl_id.entity.field_knowledge_presentations[i].value }}</li>
                       {% endfor %}
                   </ul>
-
                 </div>
                   {% endif %}
               </div>
