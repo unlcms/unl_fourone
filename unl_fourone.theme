@@ -10,6 +10,7 @@ function unl_fourone_preprocess_html(&$variables) {
 
   // Swap head title variables for group
   if ($group) {
+    unset($variables['head_title_array']['name']);
     if (unl_fourone_is_request_group_front()) {
       unset($variables['head_title']['title']);
     }
@@ -19,6 +20,7 @@ function unl_fourone_preprocess_html(&$variables) {
                                        array_slice($variables['head_title_array'], 1, NULL, true);
     }
   }
+
 
   // Set the <title> tag to UNL format: Page Title | Site Name | University of Nebraska–Lincoln
   $moduleHandler = \Drupal::service('module_handler');
@@ -213,9 +215,7 @@ function unl_fourone_get_current_group() {
  * @return bool
  */
 function unl_fourone_is_request_group_front() {
-  $group_route_context = \Drupal::service('group.group_route_context');
-  $contexts = $group_route_context->getRuntimeContexts(['group']);
-  $group = $contexts['group']->getContextValue();
+  $group = \Drupal::request()->attributes->get('group');
 
   return $group ? TRUE : FALSE;
 }
