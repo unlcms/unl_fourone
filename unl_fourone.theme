@@ -148,24 +148,25 @@ function unl_fourone_preprocess_block(&$variables) {
  * Implements template_preprocess_breadcrumb().
  */
 function unl_fourone_preprocess_breadcrumb(&$variables) {
-  $group = unl_fourone_get_current_group();
-
-  array_unshift($variables['breadcrumb'], [
-    'text' => 'Nebraska',
-    'url' => 'http://www.unl.edu/',
-  ]);
-
-  // Replace the home breadcrumb for group
-  if ($group) {
-    // @todo: There should probably be a way to inject "intermediate" crumbs
-
-    $variables['breadcrumb'][1] = [
-      'text' => $group->label(),
-      'url' => $group->toUrl()->toString(),
+  if ($variables['breadcrumb']) {
+    $variables['breadcrumb'][0] = [
+      'text' => 'Nebraska',
+      'url' => 'http://www.unl.edu/',
     ];
 
-    if (unl_fourone_is_request_group_front()) {
-      unset($variables['breadcrumb'][2]);
+    if (unl_fourone_get_current_group()) {
+      // @todo: There should probably be a way to inject "intermediate" crumbs
+    }
+
+    // Append current page.
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title,
+      ];
     }
   }
 }
