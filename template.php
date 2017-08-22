@@ -107,12 +107,12 @@ function unl_fourone_html_head_alter(&$head_elements) {
   }
 
   // If we are in a drilled down menu, change the home link to the drilled down item.
-//  if (!theme_get_setting('disable_drill_down')) {
-//    $current_menu_link = _unl_fourone_get_current_menu_link();
-//    if ($current_menu_link && $current_menu_link->depth > 1) {
-//      $home_path = drupal_get_path_alias($current_menu_link->link_path);
-//    }
-//  }
+  if (!theme_get_setting('disable_drill_down')) {
+    $current_menu_link = _unl_fourone_get_current_menu_link();
+    if ($current_menu_link && $current_menu_link->depth > 1) {
+      $home_path = drupal_get_path_alias($current_menu_link->link_path);
+    }
+  }
 
   // ...otherwise add a <link rel="home"> tag with the front page as the href attribute
   $element = array(
