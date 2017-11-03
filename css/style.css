@@ -24,3 +24,11 @@
     content: ' ';
     display: block;
 }
+
+/* Margin for images aligned in the WYSIWYG editor */
+.align-left {
+    margin: 0 1em 1em 0;
+}
+.align-right {
+    margin: 0 0 1em 1em;
+}
