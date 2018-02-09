@@ -37,13 +37,11 @@
         <div class="wdn-grid-set knowledge-grid">
           <div class="bp2-wdn-col-two-sevenths directory-knowledge-summary">
             <div class="vcard faculty" data-uid="{{ node.field_my_unl_id.entity.uid.value  }}" data-preferred-name="{{ label }}" itemscope itemtype="http://schema.org/Person">
-              <a class="card-profile planetred_profile" href="https://planetred.unl.edu/pg/profile/{{ node.field_my_unl_id.entity.uid.value  }}" title="Planet Red profile for {{ label }}" itemprop="url">
-                  {% if content.field_person_portrait %}
-                    {{ content.field_person_portrait }}
-                  {% else  %}
+                {% if node.field_person_portrait.value %}
+                {{ content.field_person_portrait }}
+                {% else  %}
                     <img class="photo profile_pic" itemprop="image" src="{{ node.field_my_unl_id.entity.field_imageurl.value  }}" alt="Avatar for {{ label }}" />
-                  {% endif %}
-              </a>
+                {% endif %}
               <div class="vcardInfo">
                 <h1 class="headline">
                   <a class="permalink" href="{{ node.field_my_unl_id.entity.field_unldirectoryaddress.value  }}" itemprop="url">
