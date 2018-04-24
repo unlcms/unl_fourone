@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\group\Entity\GroupContent;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements template_preprocess_html().
@@ -201,6 +202,9 @@ function unl_fourone_get_current_group() {
   // If we're on a Node entity page.
   $node = \Drupal::request()->attributes->get('node');
   if ($node) {
+    if (is_numeric($node)) {
+      $node = Node::load($node);
+    }
     $group_content_array = GroupContent::loadByEntity($node);
     foreach ($group_content_array as $group_content) {
       $group = $group_content->getGroup();
