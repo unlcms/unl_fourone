@@ -147,7 +147,7 @@ if ($format !== 'partial') : ?>
                 <div class="wdn-grid-set wdn-footer-links-local">
                     <div class="<?php print $wrapper_class; ?>">
                         <div class="wdn-footer-module">
-                            <span class="wdn-footer-heading" role="heading"><?php print $site_name; ?><span class="wdn-text-hidden"> Contact Information</span></span>
+                            <span class="wdn-footer-heading" role="heading" aria-level="2"><?php print $site_name; ?><span class="wdn-text-hidden"> Contact Information</span></span>
                             <div class="<?php print $contact_class; ?>">
                                 <div class="wdn-col">
                                 <?php print render($page['contactinfo']); ?>
